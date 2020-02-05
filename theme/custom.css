@@ -7,5 +7,12 @@
 }
 
 .top5 .badge-pill {
-    margin-right: 10px;
+    margin-right: 1em;
 }
+
+.card-header img {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+    height: 1.75em;
+    margin-right: 0.5em;
+  }
