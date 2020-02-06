@@ -1,15 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+<main role="main">
+    <div class="jumbotron" style="background-image: url(images/jumbotron.jpg); background-size: 100%;">
+        <h1>&nbsp;</h1>
     </div>
 
-    <div class="content px-4">
-        @Body
+    <div class="sidebar">
+        <NavMenu />
     </div>
-</div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</main>
