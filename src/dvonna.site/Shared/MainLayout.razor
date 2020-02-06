@@ -5,17 +5,108 @@
         <h1>&nbsp;</h1>
     </div>
 
-    <div class="sidebar">
+    <div class="bg-dark">
         <NavMenu />
     </div>
 
-    <div class="main">
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card border-dark mb-3" style="max-width: 35rem;">
+                    <div class="card-header">
+                        <img src="css/bootstrap/icons/calendar.svg" alt="calendar" class="icon" />
+                        Agenda
+                    </div>
 
-        <div class="content px-4">
-            @Body
+                    <!-- Only show next date on smaller devices -->
+                    <div class="card-body d-sm-none">
+                        <p class="card-text">De volgorde dartavond is op 14 februari</p>
+                    </div>
+
+                    <!-- Show all dates on larger devices -->
+                    <ul class="list-group top5 d-none d-sm-block">
+                        <li class="list-group-item d-flexalign-items-center">
+                            13 september 2019
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            11 oktober 2019
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            8 november 2019
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            13 december 2019
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            10 januari 2020
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center active">
+                            14 februari 2020
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            13 maart 2020
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            10 april 2020
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            8 mei 2020, BBQ, aanvang 6 uur
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card border-dark mb-3" style="max-width: 35rem;">
+                    <div class="card-header">
+                        <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" />
+                        Top 5
+                    </div>
+                    <ul class="list-group top5">
+                        <li class="list-group-item d-flexalign-items-center">
+                            <span class="badge badge-primary badge-pill">1</span>
+                            Piet
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            <span class="badge badge-primary badge-pill">2</span>
+                            Hendrik
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            <span class="badge badge-primary badge-pill">3</span>
+                            Linda
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            <span class="badge badge-primary badge-pill">4</span>
+                            Gerard
+                        </li>
+                        <li class="list-group-item d-flexalign-items-center">
+                            <span class="badge badge-primary badge-pill">5</span>
+                            Edna
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card border-dark mb-3" style="max-width: 35rem;">
+                    <div class="card-header">
+                        <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
+                        Speler Info
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Ga naar <i>Spelers</i>, selecteer van wie je info wilt zien en kies voor opslaan.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
+
+
+<footer class="footer">
+    <div class="container">
+        <small class="text-muted font-italic">
+            Darkly theme by <a href="https://bootswatch.com/" target="_blank">Bootswatch</a>
+        </small>
+    </div>
+</footer>
