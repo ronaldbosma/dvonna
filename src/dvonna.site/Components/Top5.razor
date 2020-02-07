@@ -11,15 +11,25 @@ else
             <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" />
             Top 5
         </div>
-        <ul class="list-group top5">
-            @foreach (var player in Top5Players)
-            {
-                <li class="list-group-item d-flexalign-items-center">
-                    <span class="badge badge-primary badge-pill">@player.Position</span>
-                    @player.Name
-                </li>
 
-            }
-        </ul>
+        @if (Top5Players.Any())
+        {
+            <ul class="list-group top5">
+                @foreach (var player in Top5Players)
+                {
+                    <li class="list-group-item d-flexalign-items-center">
+                        <span class="badge badge-primary badge-pill">@player.Position</span>
+                        @player.Name
+                    </li>
+
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="card-body">
+                <p class="card-text">Er is nog geen top 5 bekend</p>
+            </div>
+        }
     </div>
 }
