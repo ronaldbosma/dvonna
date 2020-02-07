@@ -1,11 +1,10 @@
 ﻿<nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="">dvOnna</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="@NavMenuCssClass navbar-collapse" @onclick="ToggleNavMenu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</NavLink>
@@ -25,3 +24,14 @@
         </ul>
     </div>
 </nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
