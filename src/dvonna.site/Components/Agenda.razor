@@ -21,7 +21,7 @@ else
         <ul class="list-group top5 d-none d-sm-block">
             @foreach (var playDate in PlayDates)
             {
-                <li class="list-group-item d-flexalign-items-center">
+                <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate ? "active" : "")">
                     @playDate.Date.ToString("dd MMMM yyyy")
                 </li>
 
