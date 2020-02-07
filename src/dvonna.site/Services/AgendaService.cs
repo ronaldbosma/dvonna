@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using dvonna.Shared;
 
-namespace dvonna.site.Services
+namespace dvonna.Site.Services
 {
     public class AgendaService : IAgendaService
     {
