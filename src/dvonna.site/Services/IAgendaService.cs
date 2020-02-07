@@ -8,6 +8,6 @@ namespace dvonna.Site.Services
 {
     public interface IAgendaService
     {
-        Task<Agenda> GetAgendaAsync();
+        Task<IEnumerable<PlayDate>> GetAgendaAsync();
     }
 }
