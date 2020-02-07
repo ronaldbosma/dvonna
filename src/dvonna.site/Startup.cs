@@ -30,6 +30,7 @@ namespace dvonna.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<IAgendaService, AgendaService>();
+            services.AddScoped<IScoreService, ScoreService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

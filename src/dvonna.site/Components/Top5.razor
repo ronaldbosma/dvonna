@@ -1,29 +1,25 @@
-﻿
-<div class="card border-dark mb-3" style="max-width: 35rem;">
-    <div class="card-header">
-        <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" />
-        Top 5
+﻿@inherits Top5Component
+
+@if (Top5Players == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="card border-dark mb-3" style="max-width: 35rem;">
+        <div class="card-header">
+            <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" />
+            Top 5
+        </div>
+        <ul class="list-group top5">
+            @foreach (var player in Top5Players)
+            {
+                <li class="list-group-item d-flexalign-items-center">
+                    <span class="badge badge-primary badge-pill">@player.Position</span>
+                    @player.Name
+                </li>
+
+            }
+        </ul>
     </div>
-    <ul class="list-group top5">
-        <li class="list-group-item d-flexalign-items-center">
-            <span class="badge badge-primary badge-pill">1</span>
-            Piet
-        </li>
-        <li class="list-group-item d-flexalign-items-center">
-            <span class="badge badge-primary badge-pill">2</span>
-            Hendrik
-        </li>
-        <li class="list-group-item d-flexalign-items-center">
-            <span class="badge badge-primary badge-pill">3</span>
-            Linda
-        </li>
-        <li class="list-group-item d-flexalign-items-center">
-            <span class="badge badge-primary badge-pill">4</span>
-            Gerard
-        </li>
-        <li class="list-group-item d-flexalign-items-center">
-            <span class="badge badge-primary badge-pill">5</span>
-            Edna
-        </li>
-    </ul>
-</div>
+}
