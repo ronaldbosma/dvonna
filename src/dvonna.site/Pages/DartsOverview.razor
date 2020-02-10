@@ -1,3 +1,61 @@
 ﻿@page "/dartsoverview"
+@inherits DartsOverviewPage
 
-<h3>Darts Overview</h3>
+<h3 class="pageTitle">Dartoverzicht</h3>
+
+<div class="row">
+
+    @if (DartOverviewScore == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        if (DartOverviewScore.Any())
+        {
+            <table id="dartOverview" class="table table-hover" style="max-width: 500px;">
+                <thead>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col">&nbsp;</th>
+                        @foreach (var item in DartOverviewScore)
+                        {
+                            <th scope="col">@item.PlayerId</th>
+                        }
+                        <th scope="col">Voor</th>
+                        <th scope="col">Tegen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in DartOverviewScore)
+                    {
+                        <tr>
+                            <th scope="row">@item.PlayerId</th>
+                            <th scope="row">@item.PlayerName</th>
+                            @foreach (var pointsWon in item.PointsWonAgainstOtherPlayer)
+                            {
+                                <td>@pointsWon.Value</td>
+                            }
+                            <td>@item.PointsWon</td>
+                            <td>@item.NumberOfGamesPlayed</td>
+                        </tr>
+                    }
+                    <tr>
+                        <th scope="row">&nbsp;</th>
+                        <th scope="row">Tegen</th>
+                        @foreach (var item in DartOverviewScore)
+                        {
+                            <td>@item.PointsLost</td>
+                        }
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Er is nog data beschikbaar.</p>
+        }
+    }
+</div>
