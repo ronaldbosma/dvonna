@@ -16,8 +16,8 @@ namespace dvonna.Site.Services
                 Id = 7,
                 Position = 1,
                 Name = "Piet",
-                PointsFor = 30,
-                PointsAgainst = 11,
+                PointsWon = 30,
+                PointsLost = 11,
                 NumberOfGamesPlayed = 12
             },
             new PlayerScore
@@ -25,8 +25,8 @@ namespace dvonna.Site.Services
                 Id = 1,
                 Position = 2,
                 Name = "Hendrik",
-                PointsFor = 27,
-                PointsAgainst = 9,
+                PointsWon = 27,
+                PointsLost = 9,
                 NumberOfGamesPlayed = 9
             },
             new PlayerScore
@@ -34,8 +34,8 @@ namespace dvonna.Site.Services
                 Id = 2,
                 Position = 3,
                 Name = "Linda",
-                PointsFor = 26,
-                PointsAgainst = 13,
+                PointsWon = 26,
+                PointsLost = 13,
                 NumberOfGamesPlayed = 10
             },
             new PlayerScore
@@ -43,8 +43,8 @@ namespace dvonna.Site.Services
                 Id = 6,
                 Position = 4,
                 Name = "Gerard",
-                PointsFor = 21,
-                PointsAgainst = 5,
+                PointsWon = 21,
+                PointsLost = 5,
                 NumberOfGamesPlayed = 8
             },
             new PlayerScore
@@ -52,8 +52,8 @@ namespace dvonna.Site.Services
                 Id = 20,
                 Position = 5,
                 Name = "Edna",
-                PointsFor = 12,
-                PointsAgainst = 20,
+                PointsWon = 12,
+                PointsLost = 20,
                 NumberOfGamesPlayed = 7
             },
             new PlayerScore
@@ -61,8 +61,8 @@ namespace dvonna.Site.Services
                 Id = 12,
                 Position = 6,
                 Name = "Tony",
-                PointsFor = 12,
-                PointsAgainst = 24,
+                PointsWon = 12,
+                PointsLost = 24,
                 NumberOfGamesPlayed = 10
             },
             new PlayerScore
@@ -70,8 +70,8 @@ namespace dvonna.Site.Services
                 Id = 3,
                 Position = 7,
                 Name = "Tamara",
-                PointsFor = 11,
-                PointsAgainst = 7,
+                PointsWon = 11,
+                PointsLost = 7,
                 NumberOfGamesPlayed = 5
             },
             new PlayerScore
@@ -79,8 +79,8 @@ namespace dvonna.Site.Services
                 Id = 15,
                 Position = 8,
                 Name = "Erica",
-                PointsFor = 10,
-                PointsAgainst = 14,
+                PointsWon = 10,
+                PointsLost = 14,
                 NumberOfGamesPlayed = 6
             },
             new PlayerScore
@@ -88,8 +88,8 @@ namespace dvonna.Site.Services
                 Id = 14,
                 Position = 9,
                 Name = "Tom",
-                PointsFor = 10,
-                PointsAgainst = 15,
+                PointsWon = 10,
+                PointsLost = 15,
                 NumberOfGamesPlayed = 7
             },
             new PlayerScore
@@ -97,8 +97,8 @@ namespace dvonna.Site.Services
                 Id = 21,
                 Position = 10,
                 Name = "Jason",
-                PointsFor = 7,
-                PointsAgainst = 11,
+                PointsWon = 7,
+                PointsLost = 11,
                 NumberOfGamesPlayed = 5
             }
         };

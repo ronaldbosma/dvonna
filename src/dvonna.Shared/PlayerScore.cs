@@ -8,9 +8,9 @@
 
         public string Name { get; set; }
 
-        public int PointsFor { get; set; }
+        public int PointsWon { get; set; }
 
-        public int PointsAgainst { get; set; }
+        public int PointsLost { get; set; }
 
         public int NumberOfGamesPlayed { get; set; }
     }
