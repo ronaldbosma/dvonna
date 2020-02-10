@@ -1,8 +1,9 @@
 ﻿@page "/score"
 @inherits ScoreOverviewPage
 
+<h3 class="pageTitle">Tussenstand</h3>
+
 <div class="row">
-    <h3 class="pageTitle">Tussenstand</h3>
 
     @if (Score == null)
     {
@@ -12,28 +13,28 @@
     {
         if (Score.Any())
         {
-            <table class="table table-hover">
+            <table class="table table-hover" style="max-width: 500px;">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" width="15%">#</th>
                         <th scope="col">Speler</th>
-                        <th scope="col">V</th>
-                        <th scope="col">T</th>
-                        <th scope="col">G</th>
+                        <th scope="col" width="15%">V</th>
+                        <th scope="col" width="15%">T</th>
+                        <th scope="col" width="15%">G</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var playerScore in Score)
                     {
-                    <tr>
-                        <th scope="row">
-                            <span class="badge badge-primary badge-pill">@playerScore.Position</span>
-                        </th>
-                        <td>@playerScore.Name (@playerScore.Id)</td>
-                        <td>@playerScore.PointsWon</td>
-                        <td>@playerScore.PointsLost</td>
-                        <td>@playerScore.NumberOfGamesPlayed</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">
+                                <span class="badge badge-primary badge-pill">@playerScore.Position</span>
+                            </th>
+                            <td>@playerScore.Name (@playerScore.Id)</td>
+                            <td>@playerScore.PointsWon</td>
+                            <td>@playerScore.PointsLost</td>
+                            <td>@playerScore.NumberOfGamesPlayed</td>
+                        </tr>
                     }
                 </tbody>
             </table>
