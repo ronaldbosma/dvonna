@@ -9,5 +9,7 @@ namespace dvonna.Site.Services
         Task<IEnumerable<PlayerScore>> GetTop5Async();
 
         Task<IEnumerable<PlayerScore>> GetScoreAsync();
+
+        Task<IEnumerable<DartOverviewRow>> GetDartOverviewAsync();
     }
 }
