@@ -17,6 +17,10 @@
     margin-right: 0.5em;
 }
 
+.pageTitle {
+    margin-bottom: 1em;
+}
+
 
 html {
     position: relative;
