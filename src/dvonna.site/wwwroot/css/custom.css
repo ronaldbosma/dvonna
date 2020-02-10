@@ -21,6 +21,30 @@
     margin-bottom: 1em;
 }
 
+#dartOverview table {
+    border: 2px solid #444;
+}
+
+#dartOverview th {
+    border: 2px solid #444;
+}
+
+    #dartOverview th.playerId {
+        width: 40px;
+    }
+
+    #dartOverview th.playerName {
+        min-width: 150px;
+    }
+
+    #dartOverview th.score {
+        min-width: 40px;
+        max-width: 40px;
+    }
+
+#dartOverview td {
+    border: 2px solid #444;
+}
 
 html {
     position: relative;
