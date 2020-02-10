@@ -110,5 +110,11 @@ namespace dvonna.Site.Services
             var top5 = _score.OrderBy(s => s.Position).Take(5);
             return Task.FromResult<IEnumerable<PlayerScore>>(top5);
         }
+
+        public Task<IEnumerable<PlayerScore>> GetScoreAsync()
+        {
+            var score = _score.OrderBy(s => s.Position).Select(s => s);
+            return Task.FromResult(score);
+        }
     }
 }

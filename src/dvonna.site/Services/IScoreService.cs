@@ -7,5 +7,7 @@ namespace dvonna.Site.Services
     public interface IScoreService
     {
         Task<IEnumerable<PlayerScore>> GetTop5Async();
+
+        Task<IEnumerable<PlayerScore>> GetScoreAsync();
     }
 }
