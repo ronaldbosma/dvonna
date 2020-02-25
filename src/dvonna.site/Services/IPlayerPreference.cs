@@ -16,5 +16,10 @@ namespace dvonna.Site.Services
         /// Saved <paramref name="playerId"/> as the preferred player.
         /// </summary>
         Task SavePlayerIdAsync(int playerId);
+
+        /// <summary>
+        /// Removed the saved player.
+        /// </summary>
+        Task RemoveSavedPlayerIdAsync();
     }
 }

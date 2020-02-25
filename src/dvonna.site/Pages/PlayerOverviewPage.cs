@@ -42,6 +42,10 @@ namespace dvonna.Site.Pages
             {
                 await PlayerPreference.SavePlayerIdAsync(selectedPlayerId);
             }
+            else
+            {
+                await PlayerPreference.RemoveSavedPlayerIdAsync();
+            }
         }
     }
 }

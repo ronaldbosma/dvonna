@@ -8,7 +8,7 @@ namespace dvonna.Site.Services
     {
         private const string PreferredPlayerIdKey = "PreferredPlayerId";
 
-        // ProtectedLocalStorage can be used to store across browser sessions
+        // ProtectedLocalStorage can be used to store data across browser sessions
         private readonly ProtectedLocalStorage _preferenceStore;
         private readonly IPlayerService _playerService;
 
@@ -31,6 +31,11 @@ namespace dvonna.Site.Services
         public async Task SavePlayerIdAsync(int playerId)
         {
             await _preferenceStore.SetAsync(PreferredPlayerIdKey, playerId);
+        }
+
+        public async Task RemoveSavedPlayerIdAsync()
+        {
+            await _preferenceStore.DeleteAsync(PreferredPlayerIdKey);
         }
     }
 }
