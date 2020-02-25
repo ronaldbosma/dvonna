@@ -11,17 +11,21 @@
     }
     else
     {
-
         <EditForm Model="Players" class="col-12">
-            <InputSelect id="player" class="form-control" @bind-Value="@SelectedPlayerId">
-                <option selected="">Selecteer speler</option>
-                @foreach (var player in Players)
-                    {
-                    <option value="@player.Key">@player.Value</option>
-                    }
-                /**/
-                /**/
-            </InputSelect>
+            <div class="input-group">
+                <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
+                    <option selected="">Selecteer speler</option>
+                    @foreach (var player in Players)
+                        {
+                        <option value="@player.Key">@player.Value</option>
+                        }
+                </InputSelect>
+                <div class="input-group-append">
+                    <span class="input-group-text" aria-label="Save selected player" @onclick="SaveSelectedPlayer">
+                        <img src="css/bootstrap/icons/archive-fill.svg" alt="calendar" class="icon" />
+                    </span>
+                </div>
+            </div>
         </EditForm>
     }
 </div>

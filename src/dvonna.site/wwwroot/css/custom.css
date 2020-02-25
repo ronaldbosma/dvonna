@@ -10,7 +10,7 @@
     margin-right: 1em;
 }
 
-.card-header img {
+img.icon {
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
     height: 1.75em;

@@ -35,5 +35,13 @@ namespace dvonna.Site.Pages
             var savedPlayerId = await PlayerPreference.GetSavedPlayerIdAsync();
             return savedPlayerId?.ToString();
         }
+
+        public async Task SaveSelectedPlayer()
+        {
+            if (int.TryParse(SelectedPlayerId, out int selectedPlayerId))
+            {
+                await PlayerPreference.SavePlayerIdAsync(selectedPlayerId);
+            }
+        }
     }
 }
