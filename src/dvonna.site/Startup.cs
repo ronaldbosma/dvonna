@@ -24,6 +24,7 @@ namespace dvonna.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<IAgendaService, AgendaService>();
+            services.AddScoped<IPlayerPreference, PlayerPreference>();
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<IScoreService, ScoreService>();
         }
