@@ -1,4 +1,27 @@
 ﻿@page "/players"
 @inherits PlayerOverviewPage
 
-<h3>Players</h3>
+<h3 class="pageTitle">Players</h3>
+
+<div class="row">
+
+    @if (Players == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+
+        <EditForm Model="Players">
+            <InputSelect id="player" class="form-control col-sm-12" @bind-Value="@SelectedPlayerId">
+                <option selected="">Selecteer speler</option>
+                @foreach (var player in Players)
+                    {
+                    <option value="@player.Key">@player.Value</option>
+                    }
+                /**/
+                /**/
+            </InputSelect>
+        </EditForm>
+    }
+</div>
