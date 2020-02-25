@@ -12,8 +12,8 @@
     else
     {
 
-        <EditForm Model="Players">
-            <InputSelect id="player" class="form-control col-sm-12" @bind-Value="@SelectedPlayerId">
+        <EditForm Model="Players" class="col-12">
+            <InputSelect id="player" class="form-control" @bind-Value="@SelectedPlayerId">
                 <option selected="">Selecteer speler</option>
                 @foreach (var player in Players)
                     {
