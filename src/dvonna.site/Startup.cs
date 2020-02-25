@@ -24,9 +24,12 @@ namespace dvonna.Site
             services.AddServerSideBlazor();
 
             services.AddScoped<IAgendaService, AgendaService>();
-            services.AddScoped<IPlayerPreference, PlayerPreference>();
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<IScoreService, ScoreService>();
+
+            // Service to store user preferences
+            services.AddScoped<IPlayerPreference, PlayerPreference>();
+            services.AddProtectedBrowserStorage();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
