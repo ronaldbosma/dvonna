@@ -18,7 +18,7 @@ namespace dvonna.Site.Services
                 { 7, "Sara" },
                 { 8, "Anton" },
                 { 10, "Jerry" },
-                { 12, "Justing" },
+                { 12, "Justin" },
                 { 13, "Johnny H." },
                 { 14, "Johhny Q." },
                 { 15, "Harold" },
