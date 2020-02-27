@@ -16,9 +16,6 @@ stages:
       clean: all
 
     steps:
-    - publish: '$(Build.SourcesDirectory)/src'
-      artifact: 'src'
-
     - task: UseDotNet@2
       displayName: 'Use .NET Core sdk'
       inputs:
