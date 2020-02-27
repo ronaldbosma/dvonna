@@ -50,9 +50,8 @@ stages:
         command: publish
         projects: 'src/dvonna.Site/*.csproj'
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site/BlazorApp'
-        publishWebProjects: false
+        publishWebProjects: true
         zipAfterPublish: false
-        modifyOutputPath: false
         
     - publish: '$(Build.ArtifactStagingDirectory)/dvonna.Site'
       displayName: "Publish Artifact"
