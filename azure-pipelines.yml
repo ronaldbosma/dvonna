@@ -49,7 +49,7 @@ stages:
       inputs:
         command: publish
         projects: 'src/dvonna.Site/*.csproj'
-        arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/dvonna.Site/BlazorApp'
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site/BlazorApp'
         publishWebProjects: false
         zipAfterPublish: false
         modifyOutputPath: false
