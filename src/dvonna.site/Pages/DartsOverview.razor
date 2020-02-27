@@ -1,7 +1,7 @@
 ﻿@page "/dartsoverview"
 @inherits DartsOverviewPage
 
-<h3 class="pageTitle">Dartoverzicht</h3>
+<h3 class="pageTitle">Darts Overview</h3>
 
 <div class="row">
 
@@ -22,8 +22,8 @@
                         {
                             <th scope="col" class="score">@item.PlayerId</th>
                         }
-                        <th scope="col">Voor</th>
-                        <th scope="col">Tegen</th>
+                        <th scope="col">Won</th>
+                        <th scope="col">Played</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
                     }
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <th scope="row">Tegen</th>
+                        <th scope="row">Lost</th>
                         @foreach (var item in DartOverviewScore)
                         {
                             <td>@item.PointsLost</td>
@@ -62,7 +62,7 @@
         }
         else
         {
-            <p>Er is nog data beschikbaar.</p>
+            <p>No data available yet.</p>
         }
     }
 </div>

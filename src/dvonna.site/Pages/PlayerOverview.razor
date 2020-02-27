@@ -14,7 +14,7 @@
         <EditForm Model="Players" class="col-12">
             <div class="input-group">
                 <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
-                    <option selected="">-- Selecteer speler --</option>
+                    <option selected="">-- Select player --</option>
                     @foreach (var player in Players)
                         {
                         <option value="@player.Key">@player.Value</option>
