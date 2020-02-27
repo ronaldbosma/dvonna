@@ -24,13 +24,13 @@ stages:
         installationPath: $(Agent.ToolsDirectory)/dotnet
     
     - task: DotNetCoreCLI@2
-      displayName: "NuGet Restore"
+      displayName: 'NuGet Restore'
       inputs:
         command: restore
         projects: '**/*.csproj'
     
     - task: DotNetCoreCLI@2
-      displayName: "Build Solution"
+      displayName: 'Build Solution'
       inputs:
         command: build
         projects: 'src/dvonna.site/dvonna.Site.csproj'
