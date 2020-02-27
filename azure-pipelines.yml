@@ -30,9 +30,6 @@ stages:
         command: restore
         projects: '**/*.csproj'
     
-    - script: dotnet build --configuration $(buildConfiguration) src/dvonna.site/dvonna.Site.csproj
-      displayName: 'Build Solution CLI'
-
     - task: DotNetCoreCLI@2
       displayName: "Build Solution"
       inputs:
