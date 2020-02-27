@@ -48,7 +48,7 @@ stages:
       inputs:
         command: publish
         projects: 'src/dvonna.Site/*.csproj'
-        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site'
+        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site'
         publishWebProjects: true
         zipAfterPublish: false
         
