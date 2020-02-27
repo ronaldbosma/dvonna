@@ -1,0 +1,58 @@
+trigger:
+- master
+
+stages:
+
+- stage: 'Build'
+  variables:
+    buildConfiguration: 'Release'
+
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    workspace:
+      clean: all
+
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: 3.1.x
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+    
+    - task: DotNetCoreCLI@2
+      displayName: "NuGet Restore"
+      inputs:
+        command: restore
+        projects: '**/*.csproj'
+    
+    - task: DotNetCoreCLI@2
+      displayName: "Build Solution"
+      inputs:
+        command: build
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Run Tests'
+      enabled: false
+      inputs:
+        command: test
+        projects: '**/*[Tt]ests/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput="$(Build.SourcesDirectory)/TestResults/Coverage"'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish Blazor App'
+      inputs:
+        command: publish
+        projects: 'src/dvonna.Site/*.csproj'
+        arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/dvonna.Site/BlazorApp'
+        publishWebProjects: false
+        zipAfterPublish: false
+        modifyOutputPath: false
+        
+    - publish: '$(Build.ArtifactStagingDirectory)/dvonna.Site'
+      artifact: 'dvonna.Site'
