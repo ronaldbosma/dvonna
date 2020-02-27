@@ -25,6 +25,7 @@ stages:
     
     - task: DotNetCoreCLI@2
       displayName: "NuGet Restore"
+      enabled: false
       inputs:
         command: restore
         projects: '**/*.csproj'
