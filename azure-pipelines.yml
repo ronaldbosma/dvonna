@@ -34,7 +34,7 @@ stages:
       displayName: "Build Solution"
       inputs:
         command: build
-        projects: './src/dvonna.sln'
+        projects: 'src/dvonna.sln'
         arguments: '--configuration $(buildConfiguration)'
 
     - task: DotNetCoreCLI@2
