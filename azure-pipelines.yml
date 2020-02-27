@@ -30,14 +30,14 @@ stages:
         command: restore
         projects: '**/*.csproj'
     
-    - script: dotnet build src/dvonna.sln --configuration 'Release'
+    - script: dotnet build '$(Build.SourcesDirectory)/src/dvonna.sln' --configuration 'Release'
       displayName: 'Build Solution CLI'
 
     - task: DotNetCoreCLI@2
       displayName: "Build Solution"
       inputs:
         command: build
-        projects: 'src/dvonna.sln'
+        projects: '$(Build.SourcesDirectory)/src/dvonna.sln'
         arguments: '--configuration $(buildConfiguration)'
 
     - task: DotNetCoreCLI@2
