@@ -55,4 +55,5 @@ stages:
         modifyOutputPath: false
         
     - publish: '$(Build.ArtifactStagingDirectory)/dvonna.Site'
+      displayName: "Publish Artifact"
       artifact: 'dvonna.Site'
