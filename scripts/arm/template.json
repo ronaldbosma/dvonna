@@ -11,13 +11,15 @@
             "type": "String"
         }
     },
-    "variables": {},
+    "variables": {
+        "location": "West Europe",
+    },
     "resources": [
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
             "name": "[parameters('serverfarms_ServicePlanbe2622c8_960a_name')]",
-            "location": "Central US",
+            "location": "[variables('location')]",
             "sku": {
                 "name": "F1",
                 "tier": "Free",
@@ -41,7 +43,7 @@
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
             "name": "[parameters('sites_dvonna_name')]",
-            "location": "Central US",
+            "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ServicePlanbe2622c8_960a_name'))]"
             ],
@@ -78,7 +80,7 @@
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
             "name": "[concat(parameters('sites_dvonna_name'), '/web')]",
-            "location": "Central US",
+            "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_dvonna_name'))]"
             ],
@@ -150,7 +152,7 @@
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2018-11-01",
             "name": "[concat(parameters('sites_dvonna_name'), '/', parameters('sites_dvonna_name'), '.azurewebsites.net')]",
-            "location": "Central US",
+            "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_dvonna_name'))]"
             ],
