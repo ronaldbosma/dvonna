@@ -4,11 +4,11 @@
     "parameters": {
         "sites_dvonna_name": {
             "defaultValue": "dvonna",
-            "type": "String"
+            "type": "string"
         },
         "serviceplan_name": {
             "defserviceplan_nameaultValue": "dvonna-serviceplan",
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {
