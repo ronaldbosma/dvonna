@@ -157,7 +157,7 @@
                 "[resourceId('Microsoft.Web/sites', parameters('site_name'))]"
             ],
             "properties": {
-                "siteName": "dvonna",
+                "siteName": "parameters('site_name')",
                 "hostNameType": "Verified"
             }
         }
