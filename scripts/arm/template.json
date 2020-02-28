@@ -104,7 +104,7 @@
                 "httpLoggingEnabled": false,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
-                "publishingUsername": "$dvonna",
+                "publishingUsername": "$[parameters('site_name')]",
                 "scmType": "None",
                 "use32BitWorkerProcess": true,
                 "webSocketsEnabled": false,
