@@ -65,3 +65,34 @@ stages:
     - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName)'
       displayName: 'Publish Artifact'
       artifact: '$(artifactName)'
+
+
+
+- stage: 'Deploy'
+  variables:
+    siteName: 'dvonna-test'
+
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+      - checkout: none  # no need to checkout any code because we only need the artifact
+      
+      - download: current
+        artifact: '$(artifactName)'
+
+      - task: AzureResourceManagerTemplateDeployment@3
+        displayName: 'Deploy ARM Template for $(siteName)'
+        inputs:
+          deploymentScope: 'Resource Group'
+          azureResourceManagerConnection: 'Azure Visual Studio Enterprise'
+          subscriptionId: 'd57464b3-d2fa-4386-8f2c-0c2720676b44'
+          action: 'Create Or Update Resource Group'
+          resourceGroupName: '$(siteName)'
+          location: 'West Europe'
+          templateLocation: 'Linked artifact'
+          csmFile: '$(Pipeline.Workspace)/$(artifactName)/release/template.json'
+          overrideParameters: '-site_name $(siteName) -serviceplan_name $(siteName)-serviceplan'
+          deploymentMode: 'Incremental'
