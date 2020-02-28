@@ -101,4 +101,4 @@ stages:
           azureSubscription: 'Azure Visual Studio Enterprise'
           appType: 'webApp'
           WebAppName: '$(siteName)'
-          packageForLinux: '$(Pipeline.Workspace)/$(artifactName)/dvonna.site/*.zip'
+          packageForLinux: '$(Pipeline.Workspace)/$(artifactName)/*.zip'
