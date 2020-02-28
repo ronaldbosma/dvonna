@@ -58,7 +58,8 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy ARM Template'
       inputs:
-        contents: 'scripts/arm/**'
+        sourceFolder: 'scripts/arm'
+        contents: '**'
         targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/release'
 
     - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName)'
