@@ -1,6 +1,9 @@
 trigger:
 - master
 
+variables:
+  artifactName: 'dvonna.Site'
+
 stages:
 
 - stage: 'Build'
@@ -48,7 +51,7 @@ stages:
       inputs:
         command: publish
         projects: 'src/dvonna.Site/*.csproj'
-        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site'
+        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(artifactName)'
         publishWebProjects: true
         zipAfterPublish: false
 
@@ -57,8 +60,8 @@ stages:
       inputs:
         SourceFolder: 'scripts/arm/*'
         Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/dvonna.Site/release'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/release'
 
-    - publish: '$(Build.ArtifactStagingDirectory)/dvonna.Site'
+    - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName)'
       displayName: 'Publish Artifact'
-      artifact: 'dvonna.Site'
+      artifact: '$(artifactName)'
