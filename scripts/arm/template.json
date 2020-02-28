@@ -7,7 +7,7 @@
             "type": "string"
         },
         "serviceplan_name": {
-            "defserviceplan_nameaultValue": "dvonna-serviceplan",
+            "defaultValue": "dvonna-serviceplan",
             "type": "string"
         }
     },
