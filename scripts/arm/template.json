@@ -6,8 +6,8 @@
             "defaultValue": "dvonna",
             "type": "String"
         },
-        "serverfarms_ServicePlanbe2622c8_960a_name": {
-            "defaultValue": "ServicePlanbe2622c8-960a",
+        "serviceplan_name": {
+            "defserviceplan_nameaultValue": "dvonna-serviceplan",
             "type": "String"
         }
     },
@@ -18,7 +18,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('serverfarms_ServicePlanbe2622c8_960a_name')]",
+            "name": "[parameters('serviceplan_name')]",
             "location": "[variables('location')]",
             "sku": {
                 "name": "F1",
@@ -45,7 +45,7 @@
             "name": "[parameters('sites_dvonna_name')]",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ServicePlanbe2622c8_960a_name'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serviceplan_name'))]"
             ],
             "kind": "app",
             "properties": {
@@ -62,7 +62,7 @@
                         "hostType": "Repository"
                     }
                 ],
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ServicePlanbe2622c8_960a_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serviceplan_name'))]",
                 "reserved": false,
                 "isXenon": false,
                 "hyperV": false,
