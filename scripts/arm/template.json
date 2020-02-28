@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sites_dvonna_name": {
+        "site_name": {
             "defaultValue": "dvonna",
             "type": "string"
         },
@@ -42,7 +42,7 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('sites_dvonna_name')]",
+            "name": "[parameters('site_name')]",
             "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('serviceplan_name'))]"
@@ -52,12 +52,12 @@
                 "enabled": true,
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_dvonna_name'), '.azurewebsites.net')]",
+                        "name": "[concat(parameters('site_name'), '.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Standard"
                     },
                     {
-                        "name": "[concat(parameters('sites_dvonna_name'), '.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('site_name'), '.scm.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Repository"
                     }
@@ -79,10 +79,10 @@
         {
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_dvonna_name'), '/web')]",
+            "name": "[concat(parameters('site_name'), '/web')]",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_dvonna_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('site_name'))]"
             ],
             "properties": {
                 "numberOfWorkers": 1,
@@ -151,10 +151,10 @@
         {
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_dvonna_name'), '/', parameters('sites_dvonna_name'), '.azurewebsites.net')]",
+            "name": "[concat(parameters('site_name'), '/', parameters('site_name'), '.azurewebsites.net')]",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_dvonna_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('site_name'))]"
             ],
             "properties": {
                 "siteName": "dvonna",
