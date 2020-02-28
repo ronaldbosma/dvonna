@@ -53,7 +53,7 @@ stages:
         projects: 'src/dvonna.Site/*.csproj'
         arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(artifactName)'
         publishWebProjects: true
-        zipAfterPublish: false
+        zipAfterPublish: true
 
     - task: CopyFiles@2
       displayName: 'Copy ARM Template'
