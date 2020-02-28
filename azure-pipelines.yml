@@ -93,3 +93,12 @@ stages:
           location: 'West Europe'
           csmFile: '$(Pipeline.Workspace)/$(artifactName)/release/template.json'
           overrideParameters: '-site_name $(siteName) -serviceplan_name $(siteName)-serviceplan'
+
+      - task: AzureRmWebAppDeployment@4
+        displayName: 'Deploy Blazor App to $(siteName)'
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'Azure Visual Studio Enterprise'
+          appType: 'webApp'
+          WebAppName: '$(siteName)'
+          packageForLinux: '$(Pipeline.Workspace)/$(artifactName)/dvonna.site/*.zip'
