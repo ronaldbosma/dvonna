@@ -51,7 +51,14 @@ stages:
         arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/dvonna.Site'
         publishWebProjects: true
         zipAfterPublish: false
-        
+
+    - task: CopyFiles@2
+      displayName: 'Copy ARM Template'
+      inputs:
+        SourceFolder: 'scripts/arm/*'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/dvonna.Site/release'
+
     - publish: '$(Build.ArtifactStagingDirectory)/dvonna.Site'
-      displayName: "Publish Artifact"
+      displayName: 'Publish Artifact'
       artifact: 'dvonna.Site'
