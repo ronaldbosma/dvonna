@@ -87,7 +87,7 @@ namespace dvonna.Site.Services
             {
                 Id = 14,
                 Position = 9,
-                Name = "Johhny Q.",
+                Name = "Johnny Q.",
                 PointsWon = 10,
                 PointsLost = 15,
                 NumberOfGamesPlayed = 7
