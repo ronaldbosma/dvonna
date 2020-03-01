@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
 {
-    public class PlayerPreference : IPlayerPreference
+    public class UserPreferences : IUserPreferences
     {
         private const string PreferredPlayerIdKey = "PreferredPlayerId";
 
@@ -12,7 +12,7 @@ namespace dvonna.Site.Services
         private readonly ProtectedLocalStorage _preferenceStore;
         private readonly IPlayerService _playerService;
 
-        public PlayerPreference(ProtectedLocalStorage preferenceStore, IPlayerService playerService)
+        public UserPreferences(ProtectedLocalStorage preferenceStore, IPlayerService playerService)
         {
             _preferenceStore = preferenceStore ?? throw new ArgumentNullException(nameof(preferenceStore));
             _playerService = playerService ?? throw new ArgumentNullException(nameof(playerService));

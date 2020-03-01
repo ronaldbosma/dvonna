@@ -12,7 +12,7 @@ namespace dvonna.Site.Pages
         public IPlayerService PlayerService { get; set; }
 
         [Inject]
-        public IPlayerPreference PlayerPreference { get; set; }
+        public IUserPreferences UserPreferences { get; set; }
 
         public IOrderedEnumerable<KeyValuePair<int, string>> Players { get; set; }
 
@@ -32,7 +32,7 @@ namespace dvonna.Site.Pages
 
         private async Task<string> LoadSelectedPlayerIdAsync()
         {
-            var savedPlayerId = await PlayerPreference.GetSavedPlayerIdAsync();
+            var savedPlayerId = await UserPreferences.GetSavedPlayerIdAsync();
             return savedPlayerId?.ToString();
         }
 
@@ -40,11 +40,11 @@ namespace dvonna.Site.Pages
         {
             if (int.TryParse(SelectedPlayerId, out int selectedPlayerId))
             {
-                await PlayerPreference.SavePlayerIdAsync(selectedPlayerId);
+                await UserPreferences.SavePlayerIdAsync(selectedPlayerId);
             }
             else
             {
-                await PlayerPreference.RemoveSavedPlayerIdAsync();
+                await UserPreferences.RemoveSavedPlayerIdAsync();
             }
         }
     }

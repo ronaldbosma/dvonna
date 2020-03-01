@@ -28,7 +28,7 @@ namespace dvonna.Site
             services.AddScoped<IScoreService, ScoreService>();
 
             // Service to store user preferences
-            services.AddScoped<IPlayerPreference, PlayerPreference>();
+            services.AddScoped<IUserPreferences, UserPreferences>();
             services.AddProtectedBrowserStorage();
         }
 

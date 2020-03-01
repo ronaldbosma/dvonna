@@ -5,7 +5,7 @@ namespace dvonna.Site.Services
     /// <summary>
     /// Can be used to retrieve and store a preferred player.
     /// </summary>
-    public interface IPlayerPreference
+    public interface IUserPreferences
     {
         /// <summary>
         /// Gets the saved player id if found, else null.
