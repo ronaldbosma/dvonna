@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dvonna.Shared;
 using dvonna.Site.Services;
 using Microsoft.AspNetCore.Components;
 
@@ -14,23 +15,23 @@ namespace dvonna.Site.Pages
         [Inject]
         public IUserPreferences UserPreferences { get; set; }
 
-        public IOrderedEnumerable<KeyValuePair<int, string>> Players { get; set; }
+        public IOrderedEnumerable<KeyValuePair<int, PlayerDetails>> Players { get; set; }
 
         public string SelectedPlayerId { get; set; }
 
-        public string SelectedPlayer
+        public PlayerDetails SelectedPlayer
         {
             get
             {
-                return GetSelectedPlayerName();
+                return GetSelectedPlayer();
             }
         }
 
-        private string GetSelectedPlayerName()
+        private PlayerDetails GetSelectedPlayer()
         {
             if (int.TryParse(SelectedPlayerId, out int selectedPlayerId))
             {
-                KeyValuePair<int, string>? player = Players.FirstOrDefault(p => p.Key == selectedPlayerId);
+                KeyValuePair<int, PlayerDetails>? player = Players.FirstOrDefault(p => p.Key == selectedPlayerId);
                 if (player.HasValue)
                 {
                     return player.Value.Value;
@@ -46,10 +47,10 @@ namespace dvonna.Site.Pages
             SelectedPlayerId = await LoadSelectedPlayerIdAsync();
         }
 
-        private async Task<IOrderedEnumerable<KeyValuePair<int, string>>> GetPlayersOrderedByNameAsync()
+        private async Task<IOrderedEnumerable<KeyValuePair<int, PlayerDetails>>> GetPlayersOrderedByNameAsync()
         {
             var players = await PlayerService.GetPlayersAsync();
-            return players.OrderBy(p => p.Value);
+            return players.OrderBy(p => p.Value.Name);
         }
 
         private async Task<string> LoadSelectedPlayerIdAsync()

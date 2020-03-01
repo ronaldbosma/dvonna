@@ -14,7 +14,7 @@ else
                     <option selected="">-- Select player --</option>
                     @foreach (var player in Players)
                         {
-                        <option value="@player.Key">@player.Value</option>
+                        <option value="@player.Key">@player.Value.Name</option>
                         }
                 </InputSelect>
                 <div class="input-group-append">
@@ -33,7 +33,7 @@ else
                 <div class="card border-dark">
                     <div class="card-header">
                         <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
-                        Player Info: @SelectedPlayer
+                        Player Info: @SelectedPlayer.Name
                     </div>
                     <div class="card-body">
                         <p class="card-text">

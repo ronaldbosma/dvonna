@@ -7,6 +7,6 @@ namespace dvonna.Site.Services
 {
     public interface IPlayerService
     {
-        Task<IDictionary<int, string>> GetPlayersAsync();
+        Task<IDictionary<int, PlayerDetails>> GetPlayersAsync();
     }
 }

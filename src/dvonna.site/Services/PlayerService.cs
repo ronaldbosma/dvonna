@@ -173,9 +173,9 @@ namespace dvonna.Site.Services
             }
         };
 
-        public Task<IDictionary<int, string>> GetPlayersAsync()
+        public Task<IDictionary<int, PlayerDetails>> GetPlayersAsync()
         {
-            return Task.FromResult<IDictionary<int, string>>(_playerDetails.ToDictionary(p => p.Id, p => p.Name));
+            return Task.FromResult<IDictionary<int, PlayerDetails>>(_playerDetails.ToDictionary(p => p.Id, p => p));
         }
     }
 }
