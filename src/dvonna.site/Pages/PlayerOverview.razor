@@ -1,17 +1,14 @@
 ﻿@page "/players"
 @inherits PlayerOverviewPage
 
-<h3 class="pageTitle">Players</h3>
-
-<div class="row">
-
-    @if (Players == null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <EditForm Model="Players" class="col-12">
+@if (Players == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <EditForm Model="Players" class="col-12 mb-3">
             <div class="input-group">
                 <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
                     <option selected="">-- Select player --</option>
@@ -27,5 +24,23 @@
                 </div>
             </div>
         </EditForm>
+    </div>
+
+    if (@SelectedPlayer != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-dark">
+                    <div class="card-header">
+                        <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
+                        Player Info: @SelectedPlayer
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
-</div>
+}

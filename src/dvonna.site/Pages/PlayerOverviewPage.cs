@@ -18,6 +18,28 @@ namespace dvonna.Site.Pages
 
         public string SelectedPlayerId { get; set; }
 
+        public string SelectedPlayer
+        {
+            get
+            {
+                return GetSelectedPlayerName();
+            }
+        }
+
+        private string GetSelectedPlayerName()
+        {
+            if (int.TryParse(SelectedPlayerId, out int selectedPlayerId))
+            {
+                KeyValuePair<int, string>? player = Players.FirstOrDefault(p => p.Key == selectedPlayerId);
+                if (player.HasValue)
+                {
+                    return player.Value.Value;
+                }
+            }
+
+            return null;
+        }
+
         protected override async Task OnInitializedAsync()
         {
             Players = await GetPlayersOrderedByNameAsync();
