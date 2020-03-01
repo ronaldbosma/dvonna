@@ -7,7 +7,6 @@
 }
 else
 {
-
     <div class="row">
         <div class="col-12">
             <div class="card border-dark">
@@ -30,6 +29,8 @@ else
                         </div>
                     </EditForm>
                 </div>
+
+
                 <div class="card-body">
                     <p class="card-text">
                         @if (@SelectedPlayer != null)
@@ -57,10 +58,39 @@ else
                                 </tbody>
                             </table>
                         }
-
                     </p>
                 </div>
             </div>
         </div>
     </div>
+
+
+    @if (@SelectedPlayer != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card border-dark">
+                    <div class="card-header">
+                        Games to play
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card border-dark">
+                    <div class="card-header">
+                        Played games
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 }
