@@ -7,37 +7,33 @@
 }
 else
 {
-    <div class="row">
-        <EditForm Model="Players" class="col-12 mb-3">
-            <div class="input-group">
-                <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
-                    <option selected="">-- Select player --</option>
-                    @foreach (var player in Players)
-                        {
-                        <option value="@player.Key">@player.Value.Name</option>
-                        }
-                    /**/
-                    /**/
-                </InputSelect>
-                <div class="input-group-append">
-                    <span class="input-group-text" title="Save selected player" aria-label="Save selected player" @onclick="SaveSelectedPlayer">
-                        <img src="css/bootstrap/icons/archive-fill.svg" alt="calendar" class="icon" />
-                    </span>
-                </div>
-            </div>
-        </EditForm>
-    </div>
 
-    if (@SelectedPlayer != null)
-    {
-        <div class="row">
-            <div class="col-12">
-                <div class="card border-dark">
-                    <div class="card-header">
-                        <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-dark">
+                <div class="card-header">
+                    <EditForm Model="Players">
+                        <div class="input-group">
+                            <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" style="height: 2.75em;" />
+                            <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
+                                <option selected="">-- Select player --</option>
+                                @foreach (var player in Players)
+                                    {
+                                    <option value="@player.Key">@player.Value.Name</option>
+                                    }
+                            </InputSelect>
+                            <div class="input-group-append">
+                                <span class="input-group-text" title="Save selected player" aria-label="Save selected player" @onclick="SaveSelectedPlayer">
+                                    <img src="css/bootstrap/icons/archive-fill.svg" alt="calendar" class="icon" />
+                                </span>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        @if (@SelectedPlayer != null)
+                        {
                             <table class="table table-hover" style="max-width: 500px;">
                                 <thead>
                                     <tr>
@@ -60,10 +56,11 @@ else
                                     </tr>
                                 </tbody>
                             </table>
-                        </p>
-                    </div>
+                        }
+
+                    </p>
                 </div>
             </div>
         </div>
-    }
+    </div>
 }
