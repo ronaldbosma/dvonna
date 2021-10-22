@@ -325,6 +325,12 @@ namespace dvonna.Site.Services
             }
         };
 
+        public async Task<PlayerDetails> GetPlayerDetailsAsync(int playerId)
+        {
+            var players = await GetPlayersAsync();
+            return players.ContainsKey(playerId) ? players[playerId] : null;
+        }
+
         public Task<IDictionary<int, PlayerDetails>> GetPlayersAsync()
         {
             return Task.FromResult<IDictionary<int, PlayerDetails>>(_playerDetails.ToDictionary(p => p.Id, p => p));

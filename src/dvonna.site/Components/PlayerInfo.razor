@@ -1,13 +1,49 @@
-﻿<div class="card border-dark" style="max-width: 35rem;">
+﻿@inherits PlayerInfoComponent
+
+<div class="card border-dark" style="max-width: 35rem;">
     <div class="card-header">
         <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
         Player Info
     </div>
     <div class="card-body">
-        <p class="card-text">
-            To see player information here.
-            Go to <NavLink href="players">Players</NavLink>, 
-            select a player and click on the save button.
-        </p>
+        @if (SelectedPlayer != null)
+        {
+            <p class="card-text">
+                <table class="table table-hover" style="max-width: 500px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="15%">
+                                <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" style="height: 1.5em;" />
+                            </th>
+                            <th scope="col">Player</th>
+                            <th scope="col" width="15%">G</th>
+                            <th scope="col" width="15%">W</th>
+                            <th scope="col" width="15%">L</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <span class="badge badge-primary badge-pill">@SelectedPlayer.Position</span>
+                            </th>
+                            <td>@SelectedPlayer.Name (@SelectedPlayer.Id)</td>
+                            <td>@SelectedPlayer.NumberOfGamesPlayed</td>
+                            <td>@SelectedPlayer.PointsWon</td>
+                            <td>@SelectedPlayer.PointsLost</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <NavLink href="players">More...</NavLink>
+            </p>
+        }
+        else
+        {
+            <p class="card-text">
+                To see player information here.
+                Go to <NavLink href="players">Players</NavLink>,
+                select a player and click on the save button.
+            </p>
+        }
     </div>
 </div>
