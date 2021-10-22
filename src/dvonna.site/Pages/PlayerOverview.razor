@@ -76,14 +76,21 @@ else
                         Opponents to play
                     </div>
                     <div class="card-body">
-                        <p class="card-text">
+                        @if (SelectedPlayer.OpponentToPlay.Any())
+                        {
                             <ul class="list-group list-group-flush">
                                 @foreach (var opponent in SelectedPlayer.OpponentToPlay.OrderBy(o => o.Name))
                                 {
                                     <li class="list-group-item d-flexalign-items-center">@opponent.Name (@opponent.Id)</li>
                                 }
                             </ul>
-                        </p>
+                        }
+                        else
+                        {
+                            <p class="card-text">
+                                No more opponents to play.
+                            </p>
+                        }
                     </div>
                 </div>
             </div>
@@ -94,8 +101,8 @@ else
                         Played games
                     </div>
                     <div class="card-body">
-                        <p class="card-text">
-
+                        @if (SelectedPlayer.PlayedGames.Any())
+                        {
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -115,7 +122,13 @@ else
                                     }
                                 </tbody>
                             </table>
-                        </p>
+                        }
+                        else
+                        {
+                            <p class="card-text">
+                                No games played yet.
+                            </p>
+                        }
                     </div>
                 </div>
             </div>
