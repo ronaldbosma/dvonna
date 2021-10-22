@@ -20,9 +20,9 @@
                             <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" style="height: 1.5em;" />
                         </th>
                         <th scope="col">Player</th>
+                        <th scope="col" width="15%">G</th>
                         <th scope="col" width="15%">W</th>
                         <th scope="col" width="15%">L</th>
-                        <th scope="col" width="15%">G</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,9 +33,9 @@
                                 <span class="badge badge-primary badge-pill">@playerScore.Position</span>
                             </th>
                             <td>@playerScore.Name (@playerScore.Id)</td>
+                            <td>@playerScore.NumberOfGamesPlayed</td>
                             <td>@playerScore.PointsWon</td>
                             <td>@playerScore.PointsLost</td>
-                            <td>@playerScore.NumberOfGamesPlayed</td>
                         </tr>
                     }
                 </tbody>
