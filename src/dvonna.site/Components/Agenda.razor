@@ -17,7 +17,7 @@ else
             @if (NextPlayDate.HasValue)
             {
                 <p class="card-text">
-                    The next dart date is @NextPlayDate.Value.ToString("dd MMMM").
+                    The next dart date is @NextPlayDate.Value.ToString("d MMMM").
                 </p>
             }
             else
@@ -33,7 +33,7 @@ else
             @foreach (var playDate in PlayDates)
             {
                 <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate ? "active" : "")">
-                    @playDate.Date.ToString("dd MMMM yyyy")
+                    @playDate.Date.ToString("d MMMM yyyy")
                 </li>
 
             }
