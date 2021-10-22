@@ -499,7 +499,7 @@ namespace dvonna.Site.Services
             new DartOverviewRow
             {
                 PlayerId = 14,
-                PlayerName = "Johhny Q.",
+                PlayerName = "Johnny Q.",
                 PointsWon = 10,
                 PointsLost = 15,
                 NumberOfGamesPlayed = 7,
