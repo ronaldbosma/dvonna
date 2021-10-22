@@ -63,6 +63,69 @@ namespace dvonna.Site.Services
                     new Opponent { Id = 10, Name = "Jerry" },
                     new Opponent { Id = 21, Name = "Carlos" },
                     new Opponent { Id = 23, Name = "Edna" }
+                },
+                PlayedGames = new List<PlayedGame>
+                {
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 3, Name = "Tamara"},
+                        PointsWon = 1,
+                        PointsLost = 3
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 7, Name = "Sara"},
+                        PointsWon = 3,
+                        PointsLost = 2
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 8, Name = "Anton"},
+                        PointsWon = 3,
+                        PointsLost = 0
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 12, Name = "Justin"},
+                        PointsWon = 1,
+                        PointsLost = 3
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 13, Name = "Johnny H."},
+                        PointsWon = 3,
+                        PointsLost = 0
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 14, Name = "Johnny Q."},
+                        PointsWon = 3,
+                        PointsLost = 0
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 15, Name = "Harold"},
+                        PointsWon = 3,
+                        PointsLost = 0
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 16, Name = "Sean"},
+                        PointsWon = 3,
+                        PointsLost = 2
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 17, Name = "Rosalind"},
+                        PointsWon = 3,
+                        PointsLost = 1
+                    },
+                    new PlayedGame
+                    {
+                        Opponent = new Opponent { Id = 20, Name = "Rose"},
+                        PointsWon = 3,
+                        PointsLost = 2
+                    }
                 }
             },
             new PlayerDetails
