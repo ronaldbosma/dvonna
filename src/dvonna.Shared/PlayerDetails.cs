@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace dvonna.Shared
 {
     public class PlayerDetails
     {
+        public PlayerDetails()
+        {
+            OpponentToPlay = new List<Opponent>();
+        }
+
         public int Id { get; set; }
 
         public int Position { get; set; }
@@ -17,5 +20,7 @@ namespace dvonna.Shared
         public int PointsLost { get; set; }
 
         public int NumberOfGamesPlayed { get; set; }
+
+        public IEnumerable<Opponent> OpponentToPlay { get; set; }
     }
 }
