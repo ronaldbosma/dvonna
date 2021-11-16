@@ -1,4 +1,6 @@
-﻿using dvonna.Site.Services;
+﻿using System;
+using System.Net.Http.Headers;
+using dvonna.Site.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +27,12 @@ namespace dvonna.Site
 
             services.AddScoped<IAgendaService, AgendaService>();
             services.AddScoped<IPlayerService, PlayerService>();
-            services.AddScoped<IScoreService, ScoreService>();
+
+            services.AddHttpClient("testdata", c =>
+            {
+                c.BaseAddress = Configuration.GetValue<Uri>("DvOnnaConfig:DataEndpoint");
+            })
+            .AddTypedClient(c => Refit.RestService.For<IScoreService>(c));
 
             // Service to store user preferences
             services.AddScoped<IUserPreferences, UserPreferences>();
