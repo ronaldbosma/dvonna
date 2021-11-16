@@ -28,7 +28,7 @@ namespace dvonna.Site
             services.AddScoped<IAgendaService, AgendaService>();
             services.AddScoped<IPlayerService, PlayerService>();
 
-            services.AddHttpClient("testdata", c =>
+            services.AddHttpClient("data", c =>
             {
                 c.BaseAddress = Configuration.GetValue<Uri>("DvOnnaConfig:DataEndpoint");
             })
