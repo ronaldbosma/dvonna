@@ -1,0 +1,146 @@
+[
+  {
+    "Id": 7,
+    "Position": 1,
+    "Name": "Sara",
+    "PointsWon": 30,
+    "PointsLost": 11,
+    "NumberOfGamesPlayed": 12
+  },
+  {
+    "Id": 1,
+    "Position": 2,
+    "Name": "Tom",
+    "PointsWon": 27,
+    "PointsLost": 9,
+    "NumberOfGamesPlayed": 9
+  },
+  {
+    "Id": 2,
+    "Position": 3,
+    "Name": "Pete",
+    "PointsWon": 26,
+    "PointsLost": 13,
+    "NumberOfGamesPlayed": 10
+  },
+  {
+    "Id": 6,
+    "Position": 4,
+    "Name": "Tamara",
+    "PointsWon": 21,
+    "PointsLost": 5,
+    "NumberOfGamesPlayed": 8
+  },
+  {
+    "Id": 20,
+    "Position": 5,
+    "Name": "Rose",
+    "PointsWon": 12,
+    "PointsLost": 20,
+    "NumberOfGamesPlayed": 7
+  },
+  {
+    "Id": 12,
+    "Position": 6,
+    "Name": "Justin",
+    "PointsWon": 12,
+    "PointsLost": 24,
+    "NumberOfGamesPlayed": 10
+  },
+  {
+    "Id": 3,
+    "Position": 7,
+    "Name": "Hendrik",
+    "PointsWon": 11,
+    "PointsLost": 7,
+    "NumberOfGamesPlayed": 5
+  },
+  {
+    "Id": 15,
+    "Position": 8,
+    "Name": "Harold",
+    "PointsWon": 10,
+    "PointsLost": 14,
+    "NumberOfGamesPlayed": 6
+  },
+  {
+    "Id": 14,
+    "Position": 9,
+    "Name": "Johhny Q.",
+    "PointsWon": 10,
+    "PointsLost": 15,
+    "NumberOfGamesPlayed": 7
+  },
+  {
+    "Id": 21,
+    "Position": 10,
+    "Name": "Carlos",
+    "PointsWon": 7,
+    "PointsLost": 11,
+    "NumberOfGamesPlayed": 5
+  },
+  {
+    "Id": 13,
+    "Position": 11,
+    "Name": "Johnny H.",
+    "PointsWon": 7,
+    "PointsLost": 20,
+    "NumberOfGamesPlayed": 7
+  },
+  {
+    "Id": 4,
+    "Position": 12,
+    "Name": "Lara",
+    "PointsWon": 6,
+    "PointsLost": 1,
+    "NumberOfGamesPlayed": 2
+  },
+  {
+    "Id": 8,
+    "Position": 13,
+    "Name": "Anton",
+    "PointsWon": 5,
+    "PointsLost": 15,
+    "NumberOfGamesPlayed": 6
+  },
+  {
+    "Id": 16,
+    "Position": 14,
+    "Name": "Sean",
+    "PointsWon": 3,
+    "PointsLost": 9,
+    "NumberOfGamesPlayed": 3
+  },
+  {
+    "Id": 17,
+    "Position": 15,
+    "Name": "Rosalind",
+    "PointsWon": 2,
+    "PointsLost": 12,
+    "NumberOfGamesPlayed": 4
+  },
+  {
+    "Id": 10,
+    "Position": 16,
+    "Name": "Jerry",
+    "PointsWon": 0,
+    "PointsLost": 0,
+    "NumberOfGamesPlayed": 0
+  },
+  {
+    "Id": 23,
+    "Position": 16,
+    "Name": "Edna",
+    "PointsWon": 0,
+    "PointsLost": 0,
+    "NumberOfGamesPlayed": 0
+  },
+  {
+    "Id": 5,
+    "Position": 18,
+    "Name": "Jason",
+    "PointsWon": 0,
+    "PointsLost": 3,
+    "NumberOfGamesPlayed": 1
+  }
+]

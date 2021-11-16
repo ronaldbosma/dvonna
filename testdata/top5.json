@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 7,
+    "Position": 1,
+    "Name": "Sara",
+    "PointsWon": 30,
+    "PointsLost": 11,
+    "NumberOfGamesPlayed": 12
+  },
+  {
+    "Id": 1,
+    "Position": 2,
+    "Name": "Tom",
+    "PointsWon": 27,
+    "PointsLost": 9,
+    "NumberOfGamesPlayed": 9
+  },
+  {
+    "Id": 2,
+    "Position": 3,
+    "Name": "Pete",
+    "PointsWon": 26,
+    "PointsLost": 13,
+    "NumberOfGamesPlayed": 10
+  },
+  {
+    "Id": 6,
+    "Position": 4,
+    "Name": "Tamara",
+    "PointsWon": 21,
+    "PointsLost": 5,
+    "NumberOfGamesPlayed": 8
+  },
+  {
+    "Id": 20,
+    "Position": 5,
+    "Name": "Rose",
+    "PointsWon": 12,
+    "PointsLost": 20,
+    "NumberOfGamesPlayed": 7
+  }
+]
