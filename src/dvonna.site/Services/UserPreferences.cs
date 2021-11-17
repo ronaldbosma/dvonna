@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using dvonna.Shared;
 using Microsoft.AspNetCore.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
@@ -20,16 +21,21 @@ namespace dvonna.Site.Services
 
         public async Task<int?> GetSavedPlayerIdAsync()
         {
+            var player = await GetSavedPlayerDetailsAsync();
+            return player?.Id;
+        }
+
+        public async Task<PlayerDetails> GetSavedPlayerDetailsAsync()
+        {
             var savedPlayerId = await _preferenceStore.GetAsync<int?>(PreferredPlayerIdKey);
 
             if (savedPlayerId.HasValue)
             {
-                var player = await _playerService.GetPlayerDetailsAsync(savedPlayerId.Value);
-                return player?.Id;
+                return await _playerService.GetPlayerDetailsAsync(savedPlayerId.Value);
             }
             else
             {
-                return null;    
+                return null;
             }
         }
 

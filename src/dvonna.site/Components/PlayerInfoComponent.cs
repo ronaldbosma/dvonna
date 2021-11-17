@@ -17,11 +17,7 @@ namespace dvonna.Site.Components
 
         protected async override Task OnInitializedAsync()
         {
-            var savedPlayerId = await UserPreferences.GetSavedPlayerIdAsync();
-            if (savedPlayerId.HasValue)
-            {
-                SelectedPlayer = await PlayerService.GetPlayerDetailsAsync(savedPlayerId.Value);
-            }
+            SelectedPlayer = await UserPreferences.GetSavedPlayerDetailsAsync();
         }
     }
 }

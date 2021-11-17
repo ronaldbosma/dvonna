@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using dvonna.Shared;
 
 namespace dvonna.Site.Services
 {
@@ -11,6 +12,11 @@ namespace dvonna.Site.Services
         /// Gets the saved player id if found, else null.
         /// </summary>
         Task<int?> GetSavedPlayerIdAsync();
+
+        /// <summary>
+        /// Gets the details of the saved player if found, else null.
+        /// </summary>
+        Task<PlayerDetails> GetSavedPlayerDetailsAsync();
 
         /// <summary>
         /// Saved <paramref name="playerId"/> as the preferred player.
