@@ -14,8 +14,8 @@ namespace dvonna.Site.Services
                 Id = 7,
                 Position = 1,
                 Name = "Sara",
-                PointsWon = 30,
-                PointsLost = 11,
+                TotalPointsWon = 30,
+                TotalPointsLost = 11,
                 NumberOfGamesPlayed = 12,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -31,8 +31,8 @@ namespace dvonna.Site.Services
                 Id = 1,
                 Position = 2,
                 Name = "Tom",
-                PointsWon = 27,
-                PointsLost = 9,
+                TotalPointsWon = 27,
+                TotalPointsLost = 9,
                 NumberOfGamesPlayed = 9,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -51,8 +51,8 @@ namespace dvonna.Site.Services
                 Id = 2,
                 Position = 3,
                 Name = "Pete",
-                PointsWon = 26,
-                PointsLost = 13,
+                TotalPointsWon = 26,
+                TotalPointsLost = 13,
                 NumberOfGamesPlayed = 10,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -133,8 +133,8 @@ namespace dvonna.Site.Services
                 Id = 6,
                 Position = 4,
                 Name = "Tamara",
-                PointsWon = 21,
-                PointsLost = 5,
+                TotalPointsWon = 21,
+                TotalPointsLost = 5,
                 NumberOfGamesPlayed = 8,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -154,8 +154,8 @@ namespace dvonna.Site.Services
                 Id = 20,
                 Position = 5,
                 Name = "Rose",
-                PointsWon = 12,
-                PointsLost = 20,
+                TotalPointsWon = 12,
+                TotalPointsLost = 20,
                 NumberOfGamesPlayed = 7,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -178,8 +178,8 @@ namespace dvonna.Site.Services
                 Id = 12,
                 Position = 6,
                 Name = "Justin",
-                PointsWon = 12,
-                PointsLost = 24,
+                TotalPointsWon = 12,
+                TotalPointsLost = 24,
                 NumberOfGamesPlayed = 10,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -188,8 +188,8 @@ namespace dvonna.Site.Services
                 Id = 3,
                 Position = 7,
                 Name = "Hendrik",
-                PointsWon = 11,
-                PointsLost = 7,
+                TotalPointsWon = 11,
+                TotalPointsLost = 7,
                 NumberOfGamesPlayed = 5,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -198,8 +198,8 @@ namespace dvonna.Site.Services
                 Id = 15,
                 Position = 8,
                 Name = "Harold",
-                PointsWon = 10,
-                PointsLost = 14,
+                TotalPointsWon = 10,
+                TotalPointsLost = 14,
                 NumberOfGamesPlayed = 6,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -208,8 +208,8 @@ namespace dvonna.Site.Services
                 Id = 14,
                 Position = 9,
                 Name = "Johnny Q.",
-                PointsWon = 10,
-                PointsLost = 15,
+                TotalPointsWon = 10,
+                TotalPointsLost = 15,
                 NumberOfGamesPlayed = 7,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -218,8 +218,8 @@ namespace dvonna.Site.Services
                 Id = 21,
                 Position = 10,
                 Name = "Carlos",
-                PointsWon = 7,
-                PointsLost = 11,
+                TotalPointsWon = 7,
+                TotalPointsLost = 11,
                 NumberOfGamesPlayed = 5,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -228,8 +228,8 @@ namespace dvonna.Site.Services
                 Id = 13,
                 Position = 11,
                 Name = "Johnny H.",
-                PointsWon = 7,
-                PointsLost = 20,
+                TotalPointsWon = 7,
+                TotalPointsLost = 20,
                 NumberOfGamesPlayed = 7,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -238,8 +238,8 @@ namespace dvonna.Site.Services
                 Id = 4,
                 Position = 12,
                 Name = "Lara",
-                PointsWon = 6,
-                PointsLost = 1,
+                TotalPointsWon = 6,
+                TotalPointsLost = 1,
                 NumberOfGamesPlayed = 2,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -248,8 +248,8 @@ namespace dvonna.Site.Services
                 Id = 8,
                 Position = 13,
                 Name = "Anton",
-                PointsWon = 5,
-                PointsLost = 15,
+                TotalPointsWon = 5,
+                TotalPointsLost = 15,
                 NumberOfGamesPlayed = 6,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -258,8 +258,8 @@ namespace dvonna.Site.Services
                 Id = 16,
                 Position = 14,
                 Name = "Sean",
-                PointsWon = 3,
-                PointsLost = 9,
+                TotalPointsWon = 3,
+                TotalPointsLost = 9,
                 NumberOfGamesPlayed = 3,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -268,8 +268,8 @@ namespace dvonna.Site.Services
                 Id = 17,
                 Position = 15,
                 Name = "Rosalind",
-                PointsWon = 2,
-                PointsLost = 12,
+                TotalPointsWon = 2,
+                TotalPointsLost = 12,
                 NumberOfGamesPlayed = 4,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -278,8 +278,8 @@ namespace dvonna.Site.Services
                 Id = 10,
                 Position = 16,
                 Name = "Jerry",
-                PointsWon = 0,
-                PointsLost = 0,
+                TotalPointsWon = 0,
+                TotalPointsLost = 0,
                 NumberOfGamesPlayed = 0,
                 OpponentToPlay = new List<Opponent>()
             },
@@ -288,8 +288,8 @@ namespace dvonna.Site.Services
                 Id = 23,
                 Position = 17,
                 Name = "Edna",
-                PointsWon = 0,
-                PointsLost = 0,
+                TotalPointsWon = 0,
+                TotalPointsLost = 0,
                 NumberOfGamesPlayed = 0,
                 OpponentToPlay = new List<Opponent>
                 {
@@ -318,8 +318,8 @@ namespace dvonna.Site.Services
                 Id = 5,
                 Position = 18,
                 Name = "Jason",
-                PointsWon = 0,
-                PointsLost = 3,
+                TotalPointsWon = 0,
+                TotalPointsLost = 3,
                 NumberOfGamesPlayed = 1,
                 OpponentToPlay = new List<Opponent>()
             }
@@ -328,12 +328,18 @@ namespace dvonna.Site.Services
         public async Task<PlayerDetails> GetPlayerDetailsAsync(int playerId)
         {
             var players = await GetPlayersAsync();
-            return players.ContainsKey(playerId) ? players[playerId] : null;
+            return players.SingleOrDefault(p => p.Id == playerId);
         }
 
-        public Task<IDictionary<int, PlayerDetails>> GetPlayersAsync()
+        public Task<IDictionary<int, PlayerDetails>> GetPlayersAsyncOld()
         {
             return Task.FromResult<IDictionary<int, PlayerDetails>>(_playerDetails.ToDictionary(p => p.Id, p => p));
+        }
+
+        public Task<IEnumerable<PlayerDetails>> GetPlayersAsync()
+        {
+            return Task.FromResult(_playerDetails);
+            //return Task.FromResult<IDictionary<int, PlayerDetails>>(_playerDetails.ToDictionary(p => p.Id, p => p));
         }
     }
 }

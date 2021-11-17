@@ -16,11 +16,9 @@ namespace dvonna.Shared
 
         public string Name { get; set; }
 
-        //TODO: rename tot TotalPointsWon
-        public int PointsWon { get; set; }
+        public int TotalPointsWon { get; set; }
 
-        //TODO: rename tot TotalPointsLost
-        public int PointsLost { get; set; }
+        public int TotalPointsLost { get; set; }
 
         public int NumberOfGamesPlayed { get; set; }
 

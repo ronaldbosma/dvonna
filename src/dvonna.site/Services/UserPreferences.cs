@@ -24,10 +24,8 @@ namespace dvonna.Site.Services
 
             if (savedPlayerId.HasValue)
             {
-                var players = await _playerService.GetPlayersAsync();
-                var savedPlayerIsExistingPlayer =  players.ContainsKey(savedPlayerId.Value);
-
-                return savedPlayerIsExistingPlayer ? savedPlayerId : null;
+                var player = await _playerService.GetPlayerDetailsAsync(savedPlayerId.Value);
+                return player?.Id;
             }
             else
             {

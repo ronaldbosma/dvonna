@@ -18,7 +18,7 @@ else
                                 <option selected="">-- Select player --</option>
                                 @foreach (var player in Players)
                                     {
-                                    <option value="@player.Key">@player.Value.Name</option>
+                                    <option value="@player.Id">@player.Name</option>
                                     }
                             </InputSelect>
                             <div class="input-group-append">
@@ -54,8 +54,8 @@ else
                                         </th>
                                         <td>@SelectedPlayer.Name (@SelectedPlayer.Id)</td>
                                         <td>@SelectedPlayer.NumberOfGamesPlayed</td>
-                                        <td>@SelectedPlayer.PointsWon</td>
-                                        <td>@SelectedPlayer.PointsLost</td>
+                                        <td>@SelectedPlayer.TotalPointsWon</td>
+                                        <td>@SelectedPlayer.TotalPointsLost</td>
                                     </tr>
                                 </tbody>
                             </table>

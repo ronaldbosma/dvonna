@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using dvonna.Shared;
+using Refit;
 
 namespace dvonna.Site.Services
 {
     public interface IPlayerService
     {
-        Task<PlayerDetails> GetPlayerDetailsAsync(int playerId);
-     
-        Task<IDictionary<int, PlayerDetails>> GetPlayersAsync();
+        [Get("/player-details.json")]
+        Task<IEnumerable<PlayerDetails>> GetPlayersAsync();
     }
 }

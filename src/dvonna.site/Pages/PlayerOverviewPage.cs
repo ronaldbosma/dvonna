@@ -15,7 +15,7 @@ namespace dvonna.Site.Pages
         [Inject]
         public IUserPreferences UserPreferences { get; set; }
 
-        public IOrderedEnumerable<KeyValuePair<int, PlayerDetails>> Players { get; set; }
+        public IOrderedEnumerable<PlayerDetails> Players { get; set; }
 
         public string SelectedPlayerId { get; set; }
 
@@ -31,11 +31,7 @@ namespace dvonna.Site.Pages
         {
             if (int.TryParse(SelectedPlayerId, out int selectedPlayerId))
             {
-                KeyValuePair<int, PlayerDetails>? player = Players.FirstOrDefault(p => p.Key == selectedPlayerId);
-                if (player.HasValue)
-                {
-                    return player.Value.Value;
-                }
+                return Players.SingleOrDefault(p => p.Id == selectedPlayerId);
             }
 
             return null;
@@ -47,10 +43,10 @@ namespace dvonna.Site.Pages
             SelectedPlayerId = await LoadSelectedPlayerIdAsync();
         }
 
-        private async Task<IOrderedEnumerable<KeyValuePair<int, PlayerDetails>>> GetPlayersOrderedByNameAsync()
+        private async Task<IOrderedEnumerable<PlayerDetails>> GetPlayersOrderedByNameAsync()
         {
             var players = await PlayerService.GetPlayersAsync();
-            return players.OrderBy(p => p.Value.Name);
+            return players.OrderBy(p => p.Name);
         }
 
         private async Task<string> LoadSelectedPlayerIdAsync()
