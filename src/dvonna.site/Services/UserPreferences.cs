@@ -21,11 +21,18 @@ namespace dvonna.Site.Services
         public async Task<int?> GetSavedPlayerIdAsync()
         {
             var savedPlayerId = await _preferenceStore.GetAsync<int?>(PreferredPlayerIdKey);
-            var players = await _playerService.GetPlayersAsync();
 
-            var savedPlayerIsExistingPlayer = savedPlayerId.HasValue && players.ContainsKey(savedPlayerId.Value);
+            if (savedPlayerId.HasValue)
+            {
+                var players = await _playerService.GetPlayersAsync();
+                var savedPlayerIsExistingPlayer =  players.ContainsKey(savedPlayerId.Value);
 
-            return savedPlayerIsExistingPlayer ? savedPlayerId : null;
+                return savedPlayerIsExistingPlayer ? savedPlayerId : null;
+            }
+            else
+            {
+                return null;    
+            }
         }
 
         public async Task SavePlayerIdAsync(int playerId)
