@@ -13,7 +13,7 @@ namespace dvonna.Site.Services
         [Get("/score.json")]
         Task<IEnumerable<PlayerScore>> GetScoreAsync();
 
-        [Get("/dartoverview.json")]
+        [Get("/dart-overview.json")]
         Task<IEnumerable<DartOverviewRow>> GetDartOverviewAsync();
     }
 }
