@@ -50,6 +50,10 @@ img.icon {
     border: 2px solid #444;
 }
 
+#played-games a {
+    background-color: inherit;
+}
+
 html {
     position: relative;
     min-height: 100%;

@@ -31,7 +31,8 @@ namespace dvonna.Site
             })
             .AddTypedClient(c => Refit.RestService.For<IScoreService>(c))
             .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c))
-            .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c));
+            .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c))
+            .AddTypedClient(c => Refit.RestService.For<IPlayedGamesService>(c));
 
             // Service to store user preferences
             services.AddScoped<IUserPreferences, UserPreferences>();

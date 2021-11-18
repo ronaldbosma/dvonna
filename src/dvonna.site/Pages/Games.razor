@@ -1,3 +1,32 @@
 ﻿@page "/games"
+@inherits GamesPage
 
 <h3>Games</h3>
+
+
+<div class="row">
+
+    @if (PlayedGamesImages == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        if (PlayedGamesImages.Any())
+        {
+            <div id="played-games" class="list-group-flush col-sm col-md-3">
+                @foreach (var playedGameImage in PlayedGamesImages)
+                {
+                    <a href="https://raw.githubusercontent.com/ronaldbosma/dvonna/master/testdata/played-games/@playedGameImage.PlayedGamesImageFileName" 
+                       target="_blank" class="list-group-item">
+                        @playedGameImage.Date.ToString("d MMMM yyyy")
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Er is nog geen gespeelde wedstrijden geupload.</p>
+        }
+    }
+</div>
