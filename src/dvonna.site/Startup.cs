@@ -25,15 +25,13 @@ namespace dvonna.Site
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddScoped<IAgendaService, AgendaService>();
-            //services.AddScoped<IPlayerService, PlayerService>();
-
             services.AddHttpClient("data", c =>
             {
                 c.BaseAddress = Configuration.GetValue<Uri>("DvOnnaConfig:DataEndpoint");
             })
             .AddTypedClient(c => Refit.RestService.For<IScoreService>(c))
-            .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c));
+            .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c))
+            .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c));
 
             // Service to store user preferences
             services.AddScoped<IUserPreferences, UserPreferences>();
