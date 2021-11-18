@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace dvonna.Site
 {
@@ -25,9 +26,11 @@ namespace dvonna.Site
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddHttpClient("data", c =>
+            services.Configure<DvOnnaConfig>(Configuration.GetSection(nameof(DvOnnaConfig)));
+
+            services.AddHttpClient("data", (sp, c) =>
             {
-                c.BaseAddress = Configuration.GetValue<Uri>("DvOnnaConfig:DataEndpoint");
+                c.BaseAddress = sp.GetRequiredService<IOptions<DvOnnaConfig>>().Value.DataEndpoint;
             })
             .AddTypedClient(c => Refit.RestService.For<IScoreService>(c))
             .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c))
