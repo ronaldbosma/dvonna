@@ -26,6 +26,12 @@ namespace dvonna.Site
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            AddDataClient(services);
+            AddUserPreferences(services);
+        }
+
+        private void AddDataClient(IServiceCollection services)
+        {
             services.Configure<DvOnnaConfig>(Configuration.GetSection(nameof(DvOnnaConfig)));
 
             services.AddHttpClient("data", (sp, c) =>
@@ -36,7 +42,10 @@ namespace dvonna.Site
             .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c))
             .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c))
             .AddTypedClient(c => Refit.RestService.For<IPlayedGamesService>(c));
+        }
 
+        private static void AddUserPreferences(IServiceCollection services)
+        {
             // Service to store user preferences
             services.AddScoped<IUserPreferences, UserPreferences>();
             services.AddProtectedBrowserStorage();
