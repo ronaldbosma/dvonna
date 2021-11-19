@@ -117,65 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Darts Overview" xml:space="preserve">
-    <value>Dartoverzicht</value>
-  </data>
-  <data name="Games" xml:space="preserve">
-    <value>Wedstrijden</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="Loading" xml:space="preserve">
-    <value>Gegevens ophalen</value>
-  </data>
-  <data name="Lost" xml:space="preserve">
-    <value>Tegen</value>
-  </data>
   <data name="Lost_Short" xml:space="preserve">
-    <value>V</value>
-  </data>
-  <data name="No games played yet." xml:space="preserve">
-    <value>Nog geen wedstrijden gespeeld.</value>
-  </data>
-  <data name="No more opponents to play." xml:space="preserve">
-    <value>Geen tegenstanders meer op tegen te spelen.</value>
-  </data>
-  <data name="Opponent" xml:space="preserve">
-    <value>Tegenstander</value>
-  </data>
-  <data name="Opponents to play" xml:space="preserve">
-    <value>Moet nog spelen tegen</value>
-  </data>
-  <data name="Played" xml:space="preserve">
-    <value>Gespeeld</value>
-  </data>
-  <data name="Played games" xml:space="preserve">
-    <value>Gespeelde wedstrijden</value>
+    <value>L</value>
   </data>
   <data name="PlayedGames_Short" xml:space="preserve">
     <value>G</value>
-  </data>
-  <data name="Player" xml:space="preserve">
-    <value>Speler</value>
-  </data>
-  <data name="Players" xml:space="preserve">
-    <value>Spelers</value>
-  </data>
-  <data name="Save selected player" xml:space="preserve">
-    <value>Sla geselecteerde speler op</value>
-  </data>
-  <data name="Score" xml:space="preserve">
-    <value>Tussenstand</value>
-  </data>
-  <data name="Select player" xml:space="preserve">
-    <value>Selecteer speler</value>
-  </data>
-  <data name="There are no games uploaded yet." xml:space="preserve">
-    <value>Er is nog geen gespeelde wedstrijden geupload.</value>
-  </data>
-  <data name="Won" xml:space="preserve">
-    <value>Voor</value>
   </data>
   <data name="Won_Short" xml:space="preserve">
     <value>W</value>

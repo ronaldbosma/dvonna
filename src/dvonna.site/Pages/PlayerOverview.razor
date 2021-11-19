@@ -1,9 +1,10 @@
 ﻿@page "/players"
 @inherits PlayerOverviewPage
+@inject IStringLocalizer<LocalizedStrings> Loc
 
 @if (Players == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>@Loc["Loading"]...</em></p>
 }
 else
 {
@@ -15,15 +16,15 @@ else
                         <div class="input-group">
                             <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" style="height: 2.75em;" />
                             <InputSelect id="player" class="form-control" aria-label="List of players" @bind-Value="@SelectedPlayerId">
-                                <option selected="">-- Select player --</option>
+                                <option selected="">-- @Loc["Select player"] --</option>
                                 @foreach (var player in Players)
                                     {
                                     <option value="@player.Id">@player.Name</option>
                                     }
                             </InputSelect>
                             <div class="input-group-append">
-                                <span class="input-group-text" title="Save selected player" aria-label="Save selected player" @onclick="SaveSelectedPlayer">
-                                    <img src="css/bootstrap/icons/save2-fill.svg" alt="calendar" class="icon" />
+                                <span class="input-group-text" title="@Loc["Save selected player"]" aria-label="@Loc["Save selected player"]" @onclick="SaveSelectedPlayer">
+                                    <img src="css/bootstrap/icons/save2-fill.svg" alt="save" class="icon" />
                                 </span>
                             </div>
                         </div>
@@ -41,10 +42,10 @@ else
                                         <th scope="col" width="15%">
                                             <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" style="height: 1.5em;" />
                                         </th>
-                                        <th scope="col">Player</th>
-                                        <th scope="col" width="15%">G</th>
-                                        <th scope="col" width="15%">W</th>
-                                        <th scope="col" width="15%">L</th>
+                                        <th scope="col">@Loc["Player"]</th>
+                                        <th scope="col" width="15%">@Loc["PlayedGames_Short"]</th>
+                                        <th scope="col" width="15%">@Loc["Won_Short"]</th>
+                                        <th scope="col" width="15%">@Loc["Lost_Short"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +74,7 @@ else
             <div class="col-md-6">
                 <div class="card border-dark">
                     <div class="card-header">
-                        Opponents to play
+                        @Loc["Opponents to play"]
                     </div>
                     <div class="card-body">
                         @if (SelectedPlayer.OpponentToPlay.Any())
@@ -88,7 +89,7 @@ else
                         else
                         {
                             <p class="card-text">
-                                No more opponents to play.
+                                @Loc["No more opponents to play."]
                             </p>
                         }
                     </div>
@@ -98,7 +99,7 @@ else
             <div class="col-md-6">
                 <div class="card border-dark">
                     <div class="card-header">
-                        Played games
+                        @Loc["Played games"]
                     </div>
                     <div class="card-body">
                         @if (SelectedPlayer.PlayedGames.Any())
@@ -106,9 +107,9 @@ else
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Opponent</th>
-                                        <th scope="col" width="15%">W</th>
-                                        <th scope="col" width="15%">L</th>
+                                        <th scope="col">@Loc["Opponent"]</th>
+                                        <th scope="col" width="15%">@Loc["Won_Short"]</th>
+                                        <th scope="col" width="15%">@Loc["Lost_Short"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -126,7 +127,7 @@ else
                         else
                         {
                             <p class="card-text">
-                                No games played yet.
+                                @Loc["No games played yet."]
                             </p>
                         }
                     </div>
