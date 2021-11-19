@@ -126,10 +126,22 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Gegevens ophalen</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Tegen</value>
+  </data>
+  <data name="Played" xml:space="preserve">
+    <value>Gespeeld</value>
+  </data>
   <data name="Players" xml:space="preserve">
     <value>Spelers</value>
   </data>
   <data name="Score" xml:space="preserve">
-    <value>Tussenstand</value>
+    <value>Tussenstandje</value>
+  </data>
+  <data name="Won" xml:space="preserve">
+    <value>Voor</value>
   </data>
 </root>
