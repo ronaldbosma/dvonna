@@ -135,6 +135,9 @@
   <data name="Lost_Short" xml:space="preserve">
     <value>V</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Meer</value>
+  </data>
   <data name="No games played yet." xml:space="preserve">
     <value>Nog geen wedstrijden gespeeld.</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="Player" xml:space="preserve">
     <value>Speler</value>
   </data>
+  <data name="Player Info" xml:space="preserve">
+    <value>Speler Info</value>
+  </data>
   <data name="Players" xml:space="preserve">
     <value>Spelers</value>
   </data>
@@ -168,11 +174,17 @@
   <data name="Score" xml:space="preserve">
     <value>Tussenstand</value>
   </data>
+  <data name="select a player and click on the save button." xml:space="preserve">
+    <value>selecteer een speler en klik op de opslaan knop.</value>
+  </data>
   <data name="Select player" xml:space="preserve">
     <value>Selecteer speler</value>
   </data>
   <data name="There are no games uploaded yet." xml:space="preserve">
     <value>Er is nog geen gespeelde wedstrijden geupload.</value>
+  </data>
+  <data name="To see player information here. Go to" xml:space="preserve">
+    <value>Om speler informatie te zien, ga naar</value>
   </data>
   <data name="Won" xml:space="preserve">
     <value>Voor</value>

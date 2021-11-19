@@ -1,9 +1,10 @@
 ﻿@inherits PlayerInfoComponent
+@inject IStringLocalizer<LocalizedStrings> Loc
 
 <div class="card border-dark" style="max-width: 35rem;">
     <div class="card-header">
         <img src="css/bootstrap/icons/person-fill.svg" alt="person" class="icon" />
-        Player Info
+        @Loc["Player Info"]
     </div>
     <div class="card-body">
         @if (SelectedPlayer != null)
@@ -15,10 +16,10 @@
                             <th scope="col" width="15%">
                                 <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" style="height: 1.5em;" />
                             </th>
-                            <th scope="col">Player</th>
-                            <th scope="col" width="15%">G</th>
-                            <th scope="col" width="15%">W</th>
-                            <th scope="col" width="15%">L</th>
+                            <th scope="col">@Loc["Player"]</th>
+                            <th scope="col" width="15%">@Loc["PlayedGames_Short"]</th>
+                            <th scope="col" width="15%">@Loc["Won_Short"]</th>
+                            <th scope="col" width="15%">@Loc["Lost_Short"]</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,15 +35,13 @@
                     </tbody>
                 </table>
 
-                <NavLink href="players">More...</NavLink>
+                <NavLink href="players">@Loc["More"]...</NavLink>
             </p>
         }
         else
         {
             <p class="card-text">
-                To see player information here.
-                Go to <NavLink href="players">Players</NavLink>,
-                select a player and click on the save button.
+                @Loc["To see player information here. Go to"] <NavLink href="players">@Loc["Players"], </NavLink>@Loc["select a player and click on the save button."]
             </p>
         }
     </div>
