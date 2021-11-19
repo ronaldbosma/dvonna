@@ -70,7 +70,8 @@ namespace dvonna.Site
 
             app.UseRouting();
 
-            app.UseRequestLocalization(Configuration.GetValue<string>("DvOnnaConfig:Culture"));
+            var config = app.ApplicationServices.GetRequiredService<IOptions<DvOnnaConfig>>().Value;
+            app.UseRequestLocalization(config.Culture);
 
             app.UseEndpoints(endpoints =>
             {

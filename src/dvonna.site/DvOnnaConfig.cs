@@ -4,7 +4,7 @@ namespace dvonna.Site
 {
     public class DvOnnaConfig
     {
-        public string Foo { get; set; }
+        public string Culture { get; set; }
         public Uri DataEndpoint { get; set; }
     }
 }
