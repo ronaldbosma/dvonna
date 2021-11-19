@@ -183,6 +183,9 @@
   <data name="There are no games uploaded yet." xml:space="preserve">
     <value>Er is nog geen gespeelde wedstrijden geupload.</value>
   </data>
+  <data name="There is no score yet." xml:space="preserve">
+    <value>Er is nog geen tussenstand bekend.</value>
+  </data>
   <data name="To see player information here. Go to" xml:space="preserve">
     <value>Om speler informatie te zien, ga naar</value>
   </data>

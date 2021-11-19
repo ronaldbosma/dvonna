@@ -1,13 +1,14 @@
 ﻿@page "/score"
 @inherits ScoreOverviewPage
+@inject IStringLocalizer<LocalizedStrings> Loc
 
-<h3 class="pageTitle">Score</h3>
+<h3 class="pageTitle">@Loc["Score"]</h3>
 
 <div class="row">
 
     @if (Score == null)
     {
-        <p><em>Loading...</em></p>
+        <p><em>@Loc["Loading"]...</em></p>
     }
     else
     {
@@ -19,10 +20,10 @@
                         <th scope="col" width="15%">
                             <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" style="height: 1.5em;" />
                         </th>
-                        <th scope="col">Player</th>
-                        <th scope="col" width="15%">G</th>
-                        <th scope="col" width="15%">W</th>
-                        <th scope="col" width="15%">L</th>
+                        <th scope="col">@Loc["Player"]</th>
+                        <th scope="col" width="15%">@Loc["PlayedGames_Short"]</th>
+                        <th scope="col" width="15%">@Loc["Won_Short"]</th>
+                        <th scope="col" width="15%">@Loc["Lost_Short"]</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +44,7 @@
         }
         else
         {
-            <p>Er is nog geen tussenstand bekend.</p>
+            <p>@Loc["There is no score yet."]</p>
         }
     }
 </div>
