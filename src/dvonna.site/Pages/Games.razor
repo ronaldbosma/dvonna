@@ -1,14 +1,15 @@
 ﻿@page "/games"
 @inherits GamesPage
+@inject IStringLocalizer<LocalizedStrings> Loc
 
-<h3>Games</h3>
+<h3>@Loc["Games"]</h3>
 
 
 <div class="row">
 
     @if (PlayedGamesImages == null)
     {
-        <p><em>Loading...</em></p>
+        <p><em>@Loc["Loading"]...</em></p>
     }
     else
     {
@@ -26,7 +27,7 @@
         }
         else
         {
-            <p>Er is nog geen gespeelde wedstrijden geupload.</p>
+            <p>@Loc["There are no games uploaded yet."]</p>
         }
     }
 </div>
