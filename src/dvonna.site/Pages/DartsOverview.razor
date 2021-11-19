@@ -1,13 +1,14 @@
 ﻿@page "/dartsoverview"
 @inherits DartsOverviewPage
+@inject IStringLocalizer<LocalizedStrings> Loc
 
-<h3 class="pageTitle">Darts Overview</h3>
+<h3 class="pageTitle">@Loc["Darts Overview"]</h3>
 
 <div class="row">
 
     @if (DartOverviewScore == null)
     {
-        <p><em>Loading...</em></p>
+        <p><em>@Loc["Loading"]...</em></p>
     }
     else
     {
@@ -22,8 +23,8 @@
                         {
                             <th scope="col" class="score">@item.PlayerId</th>
                         }
-                        <th scope="col">Won</th>
-                        <th scope="col">Played</th>
+                        <th scope="col">@Loc["Won"]</th>
+                        <th scope="col">@Loc["Played"]</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +50,7 @@
                     }
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <th scope="row">Lost</th>
+                        <th scope="row">@Loc["Lost"]</th>
                         @foreach (var item in DartOverviewScore)
                         {
                             <td>@item.PointsLost</td>
