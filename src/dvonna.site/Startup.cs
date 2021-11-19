@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http.Headers;
-using dvonna.Site.Services;
+﻿using dvonna.Site.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +23,7 @@ namespace dvonna.Site
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
             services.AddLocalization();
 
             AddDataClient(services);
@@ -71,13 +70,13 @@ namespace dvonna.Site
 
             app.UseRouting();
 
+            app.UseRequestLocalization(Configuration.GetValue<string>("DvOnnaConfig:Culture"));
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
-
-            app.UseRequestLocalization(Configuration.GetValue<string>("DvOnnaConfig:Culture"));
         }
     }
 }
