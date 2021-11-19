@@ -25,6 +25,7 @@ namespace dvonna.Site
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddLocalization();
 
             AddDataClient(services);
             AddUserPreferences(services);
@@ -75,6 +76,8 @@ namespace dvonna.Site
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
+
+            app.UseRequestLocalization(Configuration.GetValue<string>("DvOnnaConfig:Culture"));
         }
     }
 }
