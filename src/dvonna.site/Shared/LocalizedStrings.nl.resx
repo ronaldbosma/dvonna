@@ -141,6 +141,9 @@
   <data name="More" xml:space="preserve">
     <value>Meer</value>
   </data>
+  <data name="No darts overview available yet." xml:space="preserve">
+    <value>Er is nog geen dartoverzicht beschikbaar.</value>
+  </data>
   <data name="No games played yet." xml:space="preserve">
     <value>Nog geen wedstrijden gespeeld.</value>
   </data>
@@ -190,7 +193,10 @@
     <value>De volgende keer darten is op</value>
   </data>
   <data name="There are no games uploaded yet." xml:space="preserve">
-    <value>Er is nog geen gespeelde wedstrijden geupload.</value>
+    <value>Er zijn nog geen gespeelde wedstrijden geupload.</value>
+  </data>
+  <data name="There are no players." xml:space="preserve">
+    <value>Er zijn nog geen spelers bekend.</value>
   </data>
   <data name="There is no score yet." xml:space="preserve">
     <value>Er is nog geen tussenstand bekend.</value>
