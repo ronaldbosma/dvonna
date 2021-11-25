@@ -195,8 +195,14 @@
   <data name="There is no score yet." xml:space="preserve">
     <value>Er is nog geen tussenstand bekend.</value>
   </data>
+  <data name="There is no top 5 yet." xml:space="preserve">
+    <value>Er is nog geen top 5 bekend.</value>
+  </data>
   <data name="To see player information here. Go to" xml:space="preserve">
     <value>Om hier speler informatie te zien: ga naar</value>
+  </data>
+  <data name="Top 5" xml:space="preserve">
+    <value>Top 5</value>
   </data>
   <data name="Won" xml:space="preserve">
     <value>Voor</value>

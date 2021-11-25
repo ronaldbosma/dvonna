@@ -1,15 +1,16 @@
 ﻿@inherits Top5Component
+@inject IStringLocalizer<LocalizedStrings> Loc
 
 @if (Top5Players == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>@Loc["Loading"]...</em></p>
 }
 else
 {
     <div class="card border-dark" style="max-width: 35rem;">
         <div class="card-header">
             <img src="css/bootstrap/icons/trophy.svg" alt="trophy" class="icon" />
-            Top 5
+            @Loc["Top 5"]
         </div>
 
         @if (Top5Players.Any())
@@ -25,14 +26,14 @@ else
                 }
 
                 <li class="list-group-item d-flexalign-items-center">
-                    <NavLink href="score">More...</NavLink>
+                    <NavLink href="score">@Loc["More"]...</NavLink>
                 </li>
             </ul>
         }
         else
         {
             <div class="card-body">
-                <p class="card-text">There is no top 5 yet.</p>
+                <p class="card-text">@Loc["There is no top 5 yet."]</p>
             </div>
         }
     </div>
