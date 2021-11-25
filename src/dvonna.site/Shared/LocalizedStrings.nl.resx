@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Agenda" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
   <data name="Darts Overview" xml:space="preserve">
     <value>Dartoverzicht</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="No more opponents to play." xml:space="preserve">
     <value>Geen tegenstanders meer op tegen te spelen.</value>
+  </data>
+  <data name="No new dart date has been planned." xml:space="preserve">
+    <value>Er is (nog) geen nieuwe dartdag gepland.</value>
   </data>
   <data name="Opponent" xml:space="preserve">
     <value>Tegenstander</value>
@@ -180,6 +186,9 @@
   <data name="Select player" xml:space="preserve">
     <value>Selecteer speler</value>
   </data>
+  <data name="The next dart date is" xml:space="preserve">
+    <value>De volgende keer darten is op</value>
+  </data>
   <data name="There are no games uploaded yet." xml:space="preserve">
     <value>Er is nog geen gespeelde wedstrijden geupload.</value>
   </data>
@@ -187,7 +196,7 @@
     <value>Er is nog geen tussenstand bekend.</value>
   </data>
   <data name="To see player information here. Go to" xml:space="preserve">
-    <value>Om speler informatie te zien, ga naar</value>
+    <value>Om hier speler informatie te zien: ga naar</value>
   </data>
   <data name="Won" xml:space="preserve">
     <value>Voor</value>

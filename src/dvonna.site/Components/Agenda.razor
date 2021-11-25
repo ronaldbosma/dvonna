@@ -1,15 +1,16 @@
 ﻿@inherits AgendaComponent
+@inject IStringLocalizer<LocalizedStrings> Loc
 
 @if (PlayDates == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>@Loc["Loading"]...</em></p>
 }
 else
 {
     <div class="card border-dark" style="max-width: 35rem;">
         <div class="card-header">
             <img src="css/bootstrap/icons/calendar.svg" alt="calendar" class="icon" />
-            Agenda
+            @Loc["Agenda"]
         </div>
 
         <!-- Only show next date on smaller devices -->
@@ -17,13 +18,13 @@ else
             @if (NextPlayDate.HasValue)
             {
                 <p class="card-text">
-                    The next dart date is @NextPlayDate.Value.ToString("d MMMM").
+                    @Loc["The next dart date is"] @NextPlayDate.Value.ToString("d MMMM").
                 </p>
             }
             else
             {
                 <p class="card-text">
-                    No new dart date has been planned.
+                    @Loc["No new dart date has been planned."]
                 </p>
             }
         </div>
