@@ -29,15 +29,26 @@ else
             }
         </div>
 
-        <!-- Show all dates on larger devices -->
-        <ul class="list-group top5 d-none d-sm-block">
-            @foreach (var playDate in PlayDates)
-            {
-                <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate ? "active" : "")">
-                    @playDate.Date.ToString("d MMMM yyyy")
-                </li>
+        @if (PlayDates.Any())
+        {
+            <!-- Show all dates on larger devices -->
+            <ul class="list-group d-none d-sm-block">
+                @foreach (var playDate in PlayDates)
+                {
+                    <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate ? "active" : "")">
+                        @playDate.Date.ToString("d MMMM yyyy")
+                    </li>
 
-            }
-        </ul>
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="card-body d-none d-sm-block">
+                <p class="card-text">
+                    @Loc["No new dart date has been planned."]
+                </p>
+            </div>
+        }
     </div>
 }
