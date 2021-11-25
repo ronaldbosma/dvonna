@@ -177,6 +177,9 @@
   <data name="Players" xml:space="preserve">
     <value>Spelers</value>
   </data>
+  <data name="Print Darts Overview" xml:space="preserve">
+    <value>Dartoverzicht printen</value>
+  </data>
   <data name="Save selected player" xml:space="preserve">
     <value>Sla geselecteerde speler op</value>
   </data>

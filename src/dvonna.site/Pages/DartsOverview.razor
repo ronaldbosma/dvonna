@@ -14,52 +14,58 @@
     {
         if (DartOverviewScore.Any())
         {
-            <table id="dartOverview" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col" class="playerId">&nbsp;</th>
-                        <th scope="col" class="playerName">&nbsp;</th>
+            <div class="col-12">
+                <a id="print-link" class="float-right" href="javascript:window.print()">@Loc["Print Darts Overview"]</a>
+            </div>
+
+            <div id="section-to-print">
+                <table id="dartOverview" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="playerId">&nbsp;</th>
+                            <th scope="col" class="playerName">&nbsp;</th>
+                            @foreach (var item in DartOverviewScore)
+                            {
+                                <th scope="col" class="score">@item.PlayerId</th>
+                            }
+                            <th scope="col">@Loc["Won"]</th>
+                            <th scope="col">@Loc["Played"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         @foreach (var item in DartOverviewScore)
                         {
-                            <th scope="col" class="score">@item.PlayerId</th>
-                        }
-                        <th scope="col">@Loc["Won"]</th>
-                        <th scope="col">@Loc["Played"]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in DartOverviewScore)
-                    {
-                    <tr>
-                        <th scope="row">@item.PlayerId</th>
-                        <th scope="row">@item.PlayerName</th>
-                        @foreach (var pointsWon in item.PointsWonAgainstOtherPlayer)
-                        {
-                            @if (pointsWon.Key == item.PlayerId)
+                        <tr>
+                            <th scope="row">@item.PlayerId</th>
+                            <th scope="row">@item.PlayerName</th>
+                            @foreach (var pointsWon in item.PointsWonAgainstOtherPlayer)
                             {
-                                <td class="bg-light">&nbsp;</td>
+                                @if (pointsWon.Key == item.PlayerId)
+                                {
+                                    <td class="bg-light">&nbsp;</td>
+                                }
+                                else
+                                {
+                                    <td>@pointsWon.Value</td>
+                                }
                             }
-                            else
+                            <td>@item.PointsWon</td>
+                            <td>@item.NumberOfGamesPlayed</td>
+                        </tr>
+                        }
+                        <tr>
+                            <th scope="row">&nbsp;</th>
+                            <th scope="row">@Loc["Lost"]</th>
+                            @foreach (var item in DartOverviewScore)
                             {
-                                <td>@pointsWon.Value</td>
+                                <td>@item.PointsLost</td>
                             }
-                        }
-                        <td>@item.PointsWon</td>
-                        <td>@item.NumberOfGamesPlayed</td>
-                    </tr>
-                    }
-                    <tr>
-                        <th scope="row">&nbsp;</th>
-                        <th scope="row">@Loc["Lost"]</th>
-                        @foreach (var item in DartOverviewScore)
-                        {
-                            <td>@item.PointsLost</td>
-                        }
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {
