@@ -67,6 +67,13 @@ stages:
         contents: '**'
         targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/release'
 
+    - task: CopyFiles@2
+      displayName: 'Copy Bicep files'
+      inputs:
+        sourceFolder: 'scripts/arm'
+        contents: '**'
+        targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/.bicep'
+
     - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName)'
       displayName: 'Publish Artifact'
       artifact: '$(artifactName)'
@@ -84,7 +91,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     steps:
-      - checkout: none  # no need to checkout any code because we only need the artifact
+      - checkout: self  # checkout to access bicep files
       
       - download: current
         artifact: '$(artifactName)'
@@ -101,7 +108,7 @@ stages:
 
             dataEndpoint=$(az deployment sub create \
               --location $(location) \
-              --template-file .bicep/dvonna.bicep \
+              --template-file '$(Pipeline.Workspace)/$(artifactName)/.bicep/dvonna.bicep' \
               --parameters siteName='$(siteName)' location='$(location)' \
               --query properties.outputs.dataEndpoint.value \
               --output tsv)
