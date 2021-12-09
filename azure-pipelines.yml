@@ -106,14 +106,10 @@ stages:
             echo "siteName: $(siteName)"
             echo "location: $(location)"
 
-            dataEndpoint=$(az deployment sub create \
+            az deployment sub create \
               --location $(location) \
               --template-file '$(Pipeline.Workspace)/$(artifactName)/.bicep/dvonna.bicep' \
-              --parameters siteName='$(siteName)' location='$(location)' \
-              --query properties.outputs.dataEndpoint.value \
-              --output tsv)
-          
-            echo "##vso[task.setvariable variable=dataEndpoint]$dataEndpoint"
+              --parameters siteName='$(siteName)' location='$(location)'
 
       - task: AzureRmWebAppDeployment@4
         displayName: 'Deploy Blazor App to $(siteName)'

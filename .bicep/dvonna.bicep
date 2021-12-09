@@ -18,5 +18,3 @@ module blazorAppModule 'dvonna-blazor-app.bicep' = {
     dvonnaResourceGroup
   ]
 }
-
-output dataEndpoint string = blazorAppModule.outputs.dataEndpoint
