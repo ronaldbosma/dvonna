@@ -70,7 +70,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy Bicep files'
       inputs:
-        sourceFolder: 'scripts/arm'
+        sourceFolder: '.bicep'
         contents: '**'
         targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/.bicep'
 
