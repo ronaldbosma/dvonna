@@ -61,11 +61,11 @@ stages:
         zipAfterPublish: true
 
     - task: CopyFiles@2
-      displayName: 'Copy ARM Template'
+      displayName: 'Copy Bicep files'
       inputs:
-        sourceFolder: 'scripts/arm'
+        sourceFolder: '.bicep'
         contents: '**'
-        targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/release'
+        targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/.bicep'
 
     - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName)'
       displayName: 'Publish Artifact'
@@ -76,6 +76,7 @@ stages:
 - stage: 'Deploy'
   variables:
     siteName: 'dvonna-test'
+    location: 'westeurope'
 
   jobs:
   - job:
@@ -88,16 +89,20 @@ stages:
       - download: current
         artifact: '$(artifactName)'
 
-      - task: AzureResourceManagerTemplateDeployment@3
-        displayName: 'Deploy ARM Template for $(siteName)'
+      - task: AzureCLI@2
+        displayName: 'Create Azure resources for $(siteName)'
         inputs:
-          deploymentScope: 'Resource Group'
-          azureResourceManagerConnection: 'Azure Visual Studio Enterprise'
-          subscriptionId: 'd57464b3-d2fa-4386-8f2c-0c2720676b44'
-          resourceGroupName: '$(siteName)'
-          location: 'West Europe'
-          csmFile: '$(Pipeline.Workspace)/$(artifactName)/release/template.json'
-          overrideParameters: '-site_name $(siteName) -serviceplan_name $(siteName)-serviceplan'
+          azureSubscription: 'Azure Visual Studio Enterprise'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            echo "siteName: $(siteName)"
+            echo "location: $(location)"
+
+            az deployment sub create \
+              --location $(location) \
+              --template-file '$(Pipeline.Workspace)/$(artifactName)/.bicep/dvonna.bicep' \
+              --parameters siteName='$(siteName)' location='$(location)'
 
       - task: AzureRmWebAppDeployment@4
         displayName: 'Deploy Blazor App to $(siteName)'
