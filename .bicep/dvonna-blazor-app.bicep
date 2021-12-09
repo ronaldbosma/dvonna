@@ -34,4 +34,4 @@ resource blazorAppService 'Microsoft.Web/sites@2021-02-01' = {
 }
 
 
-output dataUrl string = staticDataSiteUrl
+output dataEndpoint string = staticDataSiteUrl
