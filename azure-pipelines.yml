@@ -61,13 +61,6 @@ stages:
         zipAfterPublish: true
 
     - task: CopyFiles@2
-      displayName: 'Copy ARM Template'
-      inputs:
-        sourceFolder: 'scripts/arm'
-        contents: '**'
-        targetFolder: '$(Build.ArtifactStagingDirectory)/$(artifactName)/release'
-
-    - task: CopyFiles@2
       displayName: 'Copy Bicep files'
       inputs:
         sourceFolder: '.bicep'
