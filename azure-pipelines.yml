@@ -75,7 +75,8 @@ stages:
 
 - stage: 'Deploy'
   variables:
-    siteName: 'dvonna-test'
+    siteName: 'dvonna-tmp-1'
+    location: 'westeurope'
 
   jobs:
   - job:
@@ -88,16 +89,24 @@ stages:
       - download: current
         artifact: '$(artifactName)'
 
-      - task: AzureResourceManagerTemplateDeployment@3
-        displayName: 'Deploy ARM Template for $(siteName)'
+      - task: AzureCLI@2
+        displayName: 'Create Azure resources for $(siteName)'
         inputs:
-          deploymentScope: 'Resource Group'
-          azureResourceManagerConnection: 'Azure Visual Studio Enterprise'
-          subscriptionId: 'd57464b3-d2fa-4386-8f2c-0c2720676b44'
-          resourceGroupName: '$(siteName)'
-          location: 'West Europe'
-          csmFile: '$(Pipeline.Workspace)/$(artifactName)/release/template.json'
-          overrideParameters: '-site_name $(siteName) -serviceplan_name $(siteName)-serviceplan'
+          azureSubscription: 'Azure Visual Studio Enterprise'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            echo "siteName: $(siteName)"
+            echo "location: $(location)"
+
+            dataEndpoint=$(az deployment sub create \
+              --location $(location) \
+              --template-file .bicep/dvonna.bicep \
+              --parameters siteName='$(siteName)' location='$(location)' \
+              --query properties.outputs.dataEndpoint.value \
+              --output tsv)
+          
+            echo "##vso[task.setvariable variable=dataEndpoint]$dataEndpoint"
 
       - task: AzureRmWebAppDeployment@4
         displayName: 'Deploy Blazor App to $(siteName)'
