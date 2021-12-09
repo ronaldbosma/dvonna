@@ -84,7 +84,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     steps:
-      - checkout: self  # checkout to access bicep files
+      - checkout: none  # no need to checkout any code because we only need the artifact
       
       - download: current
         artifact: '$(artifactName)'
