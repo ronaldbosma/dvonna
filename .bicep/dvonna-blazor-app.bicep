@@ -17,20 +17,23 @@ resource dataStaticWebApp 'Microsoft.Web/staticSites@2021-02-01' existing = {
   name: '${siteName}-data'
 }
 
-var staticDataSiteUrl = 'https://${dataStaticWebApp.properties.defaultHostname}'
-
 
 resource blazorAppService 'Microsoft.Web/sites@2021-02-01' = {
   name: siteName
   location: location
   properties: {
     serverFarmId: appServicePlan.id
+    siteConfig: {
+      appSettings: [
+        {
+          name: 'DvOnnaConfig:DataEndpoint'
+          value: 'https://${dataStaticWebApp.properties.defaultHostname}'
+        }
+      ]
+    }
   }
   dependsOn: [
     appServicePlan
     dataStaticWebApp
   ]
 }
-
-
-output dataEndpoint string = staticDataSiteUrl
