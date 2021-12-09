@@ -75,7 +75,7 @@ stages:
 
 - stage: 'Deploy'
   variables:
-    siteName: 'dvonna-tmp-1'
+    siteName: 'dvonna-test'
     location: 'westeurope'
 
   jobs:
