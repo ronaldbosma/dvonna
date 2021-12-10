@@ -1,5 +1,6 @@
 param siteName string
 param location string = resourceGroup().location
+param environment string
 
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
@@ -28,6 +29,10 @@ resource blazorAppService 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'DvOnnaConfig:DataEndpoint'
           value: 'https://${dataStaticWebApp.properties.defaultHostname}'
+        }
+        {
+          name: 'ASPNETCORE_ENVIRONMENT'
+          value: environment
         }
       ]
     }

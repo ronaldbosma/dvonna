@@ -77,6 +77,7 @@ stages:
   variables:
     siteName: 'dvonna-test'
     location: 'westeurope'
+    environment: 'test'
 
   jobs:
   - job:
@@ -102,7 +103,7 @@ stages:
             az deployment sub create \
               --location $(location) \
               --template-file '$(Pipeline.Workspace)/$(artifactName)/.bicep/dvonna.bicep' \
-              --parameters siteName='$(siteName)' location='$(location)'
+              --parameters siteName='$(siteName)' location='$(location)' environment='$(environment)'
 
       - task: AzureRmWebAppDeployment@4
         displayName: 'Deploy Blazor App to $(siteName)'

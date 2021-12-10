@@ -1,5 +1,6 @@
 param siteName string
 param location string
+param environment string = ''
 
 targetScope = 'subscription'
 
@@ -13,6 +14,7 @@ module blazorAppModule 'dvonna-blazor-app.bicep' = {
   scope: resourceGroup(dvonnaResourceGroup.name)
   params: {
     siteName: siteName
+    environment: environment
   }
   dependsOn: [
     dvonnaResourceGroup
