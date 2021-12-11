@@ -123,8 +123,8 @@
   <data name="PlayedGames_Short" xml:space="preserve">
     <value>G</value>
   </data>
-  <data name="PlayerSavedSuccessfully" xml:space="preserve">
-    <value>Player {0} has been saved successfully</value>
+  <data name="Player has been saved" xml:space="preserve">
+    <value>Player {0} has been saved</value>
   </data>
   <data name="Won_Short" xml:space="preserve">
     <value>W</value>

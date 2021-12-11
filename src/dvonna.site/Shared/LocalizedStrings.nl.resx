@@ -171,14 +171,14 @@
   <data name="Player" xml:space="preserve">
     <value>Speler</value>
   </data>
+  <data name="Player has been saved" xml:space="preserve">
+    <value>Speler {0} is opgeslagen</value>
+  </data>
   <data name="Player Info" xml:space="preserve">
     <value>Speler Info</value>
   </data>
   <data name="Players" xml:space="preserve">
     <value>Spelers</value>
-  </data>
-  <data name="PlayerSavedSuccessfully" xml:space="preserve">
-    <value>Speler {0} is succesvol opgeslagen</value>
   </data>
   <data name="Print Darts Overview" xml:space="preserve">
     <value>Dartoverzicht printen</value>
@@ -186,8 +186,8 @@
   <data name="Save selected player" xml:space="preserve">
     <value>Sla geselecteerde speler op</value>
   </data>
-  <data name="Saved player has been cleared successfully" xml:space="preserve">
-    <value>Opgeslagen speler is succesvol verwijderd</value>
+  <data name="Saved player has been cleared" xml:space="preserve">
+    <value>Opgeslagen speler is verwijderd</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>Tussenstand</value>

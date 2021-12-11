@@ -10,7 +10,7 @@ else
     <div class="row">
         <div class="col-12">
             <div class="alert alert-success @(PlayerSavedMessageVisible ? "d-block" : "d-none")" role="alert">
-                @PlayerSavedMessage
+                <img src="css/bootstrap/icons/info-circle.svg" alt="info" class="icon" /> @PlayerSavedMessage
 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" @onclick="HidePlayerSavedMessage">
                     <span aria-hidden="true">&times;</span>

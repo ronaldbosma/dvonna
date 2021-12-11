@@ -74,12 +74,12 @@ namespace dvonna.Site.Pages
                 await UserPreferences.SavePlayerIdAsync(selectedPlayerId);
 
                 var savedPlayerName = Players.Single(p => p.Id == selectedPlayerId).Name;
-                ShowPlayerSavedMessage(string.Format(@Loc["PlayerSavedSuccessfully"], savedPlayerName));
+                ShowPlayerSavedMessage(string.Format(@Loc["Player has been saved"], savedPlayerName));
             }
             else
             {
                 await UserPreferences.RemoveSavedPlayerIdAsync();
-                ShowPlayerSavedMessage(@Loc["Saved player has been cleared successfully"]);
+                ShowPlayerSavedMessage(@Loc["Saved player has been cleared"]);
             }
         }
 
