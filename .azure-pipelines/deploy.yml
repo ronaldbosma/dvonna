@@ -1,0 +1,50 @@
+parameters:
+- name: artifactName
+  type: string
+- name: siteName
+  type: string
+- name: location
+  type: string
+  default: 'westeurope'
+- name: environment
+  type: string
+- name: azureSubscription
+  type: string
+  default: 'Azure Visual Studio Enterprise'
+
+
+jobs:
+- job:
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+    - checkout: none  # no need to checkout any code because we only need the artifact
+    
+    - download: current
+      artifact: '${{ parameters.artifactName }}'
+
+    - task: AzureCLI@2
+      displayName: 'Create Azure resources for ${{ parameters.siteName }}'
+      inputs:
+        azureSubscription: '${{ parameters.azureSubscription }}'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          echo "siteName: ${{ parameters.siteName }}"
+          echo "location: ${{ parameters.location }}"
+          echo "environment: ${{ parameters.environment }}"
+
+          az deployment sub create \
+            --location ${{ parameters.location }} \
+            --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' \
+            --parameters siteName='${{ parameters.siteName }}' location='${{ parameters.location }}' environment='${{ parameters.environment }}'
+
+    - task: AzureRmWebAppDeployment@4
+      displayName: 'Deploy Blazor App to ${{ parameters.siteName }}'
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: '${{ parameters.azureSubscription }}'
+        appType: 'webApp'
+        WebAppName: '${{ parameters.siteName }}'
+        packageForLinux: '$(Pipeline.Workspace)/${{ parameters.artifactName }}/*.zip'

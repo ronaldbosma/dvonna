@@ -6,55 +6,24 @@ trigger:
     exclude:
     - testdata/*
 
+
 variables:
   artifactName: 'dvonna.Site'
 
-stages:
 
+stages:
 - stage: 'Build'
   jobs:
   - template: .azure-pipelines/build.yml
     parameters:
       artifactName: '$(artifactName)'
 
-
-- stage: 'Deploy'
-  variables:
-    siteName: 'dvonna-test'
-    location: 'westeurope'
-    environment: 'test'
-
+- stage: 'Test'
+  dependsOn: 'Build'
   jobs:
-  - job:
-    pool:
-      vmImage: 'ubuntu-latest'
-
-    steps:
-      - checkout: none  # no need to checkout any code because we only need the artifact
-      
-      - download: current
-        artifact: '$(artifactName)'
-
-      - task: AzureCLI@2
-        displayName: 'Create Azure resources for $(siteName)'
-        inputs:
-          azureSubscription: 'Azure Visual Studio Enterprise'
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            echo "siteName: $(siteName)"
-            echo "location: $(location)"
-
-            az deployment sub create \
-              --location $(location) \
-              --template-file '$(Pipeline.Workspace)/$(artifactName)/.bicep/dvonna.bicep' \
-              --parameters siteName='$(siteName)' location='$(location)' environment='$(environment)'
-
-      - task: AzureRmWebAppDeployment@4
-        displayName: 'Deploy Blazor App to $(siteName)'
-        inputs:
-          ConnectionType: 'AzureRM'
-          azureSubscription: 'Azure Visual Studio Enterprise'
-          appType: 'webApp'
-          WebAppName: '$(siteName)'
-          packageForLinux: '$(Pipeline.Workspace)/$(artifactName)/*.zip'
+  - template: .azure-pipelines/deploy.yml
+    parameters:
+      artifactName: '$(artifactName)'
+      siteName: 'dvonna-test'
+      location: 'westeurope'
+      environment: 'test'
