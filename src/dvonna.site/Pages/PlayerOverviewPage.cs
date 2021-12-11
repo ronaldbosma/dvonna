@@ -113,12 +113,14 @@ namespace dvonna.Site.Pages
 
         private void HidePlayerSavedMessage(object sender, ElapsedEventArgs e)
         {
-            InvokeAsync(() =>
-            {
-                PlayerSavedMessageVisible = false;
-                PlayerSavedMessage = "";
-                StateHasChanged();
-            });
+            InvokeAsync(HidePlayerSavedMessage);
+        }
+
+        public void HidePlayerSavedMessage()
+        {
+            PlayerSavedMessageVisible = false;
+            PlayerSavedMessage = "";
+            StateHasChanged();
         }
 
         public void Dispose()
