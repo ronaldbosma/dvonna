@@ -8,6 +8,7 @@ parameters:
   default: 'westeurope'
 - name: environment
   type: string
+  default: ''
 - name: azureSubscription
   type: string
   default: 'Azure Visual Studio Enterprise'

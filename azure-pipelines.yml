@@ -25,5 +25,15 @@ stages:
     parameters:
       artifactName: '$(artifactName)'
       siteName: 'dvonna-test'
-      location: 'westeurope'
+      location: 'northeurope'
       environment: 'test'
+
+- stage: 'Production'
+  dependsOn: 'Test'
+  #condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  jobs:
+  - template: .azure-pipelines/deploy.yml
+    parameters:
+      artifactName: '$(artifactName)'
+      siteName: 'dvonna'
+      location: 'northeurope'
