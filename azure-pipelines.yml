@@ -36,4 +36,3 @@ stages:
     parameters:
       artifactName: '$(artifactName)'
       siteName: 'dvonna'
-      location: 'northeurope'
