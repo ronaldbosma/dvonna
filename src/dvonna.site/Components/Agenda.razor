@@ -33,7 +33,7 @@ else
 
         @if (PlayDates.Any())
         {
-            <!-- Show all dates on larger devices -->
+            <!-- Show all dates on larger devices. Show on small devices when IsFullAgendaVisibleOnSmallDevice is true. -->
             <ul class="list-group @(IsFullAgendaVisibleOnSmallDevice ? "" : "d-none d-sm-block")">
                 @foreach (var playDate in PlayDates)
                 {
