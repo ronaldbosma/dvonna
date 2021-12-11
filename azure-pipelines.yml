@@ -30,7 +30,7 @@ stages:
 
 - stage: 'Production'
   dependsOn: 'Test'
-  #condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
   - template: .azure-pipelines/deploy.yml
     parameters:
