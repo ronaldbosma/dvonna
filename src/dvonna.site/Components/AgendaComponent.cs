@@ -15,7 +15,7 @@ namespace dvonna.Site.Components
 
         public IEnumerable<PlayDate> PlayDates { get; set; }
 
-        public DateTime? NextPlayDate { get; set; }
+        public PlayDate NextPlayDate { get; set; }
 
         public bool IsFullAgendaVisibleOnSmallDevice { get; set; }
 
@@ -23,8 +23,8 @@ namespace dvonna.Site.Components
         {
             PlayDates = await AgendaService.GetAgendaAsync();
 
-            var futurePlayDates = PlayDates.Where(pd => pd.Date >= DateTime.Today).Select(pd => pd.Date.Date);
-            NextPlayDate = (futurePlayDates.Any() ? futurePlayDates.Min() : new Nullable<DateTime>());
+            NextPlayDate = PlayDates.OrderBy(pd => pd.Date)
+                                    .FirstOrDefault(pd => pd.Date >= DateTime.Today);
         }
 
         public void ToggleFullAgendaOnSmallDevice() => IsFullAgendaVisibleOnSmallDevice = !IsFullAgendaVisibleOnSmallDevice;

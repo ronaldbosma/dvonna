@@ -15,10 +15,15 @@ else
 
         <!-- Only show next date on smaller devices -->
         <div class="card-body d-sm-none">
-            @if (NextPlayDate.HasValue)
+            @if (NextPlayDate != null)
             {
                 <p class="card-text">
-                    @Loc["The next dart date is"] @NextPlayDate.Value.ToString("d MMMM").
+                    @Loc["The next dart date is"] @NextPlayDate.Date.ToString("d MMMM").
+                    @if (!string.IsNullOrWhiteSpace(NextPlayDate.Comments))
+                    {
+                        <br />  
+                        <i>@NextPlayDate.Comments</i>
+                    }
                 </p>
                 
                 <NavLink href="#" @onclick="ToggleFullAgendaOnSmallDevice">@(IsFullAgendaVisibleOnSmallDevice ? Loc["Less"] : Loc["More"])...</NavLink>
@@ -37,8 +42,13 @@ else
             <ul class="list-group @(IsFullAgendaVisibleOnSmallDevice ? "" : "d-none d-sm-block")">
                 @foreach (var playDate in PlayDates)
                 {
-                    <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate ? "active" : "")">
+                    <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate?.Date.Date ? "active" : "")">
                         @playDate.Date.ToString("d MMMM yyyy")
+                        @if (!string.IsNullOrWhiteSpace(playDate.Comments))
+                        {
+                            <br />  
+                            <i>@playDate.Comments</i>
+                        }
                     </li>
 
                 }
