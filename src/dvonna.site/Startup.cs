@@ -29,7 +29,6 @@ namespace dvonna.Site
 
             AddDataClient(services);
             AddUserPreferences(services);
-            AddToastNotifications(services);
         }
 
         private void AddDataClient(IServiceCollection services)
@@ -51,11 +50,6 @@ namespace dvonna.Site
             // Service to store user preferences
             services.AddScoped<IUserPreferences, UserPreferences>();
             services.AddProtectedBrowserStorage();
-        }
-
-        private void AddToastNotifications(IServiceCollection services)
-        {
-            services.AddScoped<IToastService, ToastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

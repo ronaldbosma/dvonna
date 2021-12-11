@@ -15,9 +15,6 @@ namespace dvonna.Site.Pages
         [Inject]
         public IUserPreferences UserPreferences { get; set; }
 
-        [Inject]
-        public IToastService ToastService { get; set; }
-
         public IOrderedEnumerable<PlayerDetails> Players { get; set; }
 
         public string SelectedPlayerId { get; set; }
@@ -68,8 +65,6 @@ namespace dvonna.Site.Pages
             {
                 await UserPreferences.RemoveSavedPlayerIdAsync();
             }
-
-            ToastService.ShowToast("Save successful", ToastLevel.Info);
         }
     }
 }
