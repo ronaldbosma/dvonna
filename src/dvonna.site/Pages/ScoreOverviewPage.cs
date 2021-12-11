@@ -11,11 +11,17 @@ namespace dvonna.Site.Pages
         [Inject]
         public IScoreService ScoreService { get; set; }
 
+        [Inject]
+        public IUserPreferences UserPreferences { get; set; }
+
         public IEnumerable<PlayerScore> Score { get; set; }
+
+        public int? SelectedPlayerId { get; set; }
 
         protected async override Task OnInitializedAsync()
         {
             Score = await ScoreService.GetScoreAsync();
+            SelectedPlayerId = await UserPreferences.GetSavedPlayerIdAsync();
         }
     }
 }

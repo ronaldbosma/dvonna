@@ -59,6 +59,10 @@ img.icon {
     margin-bottom: 10px;
 }
 
+tr.mark {
+    color: #000;
+}
+
 html {
     position: relative;
     min-height: 100%;

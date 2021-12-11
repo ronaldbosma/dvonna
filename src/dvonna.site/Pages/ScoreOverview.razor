@@ -29,7 +29,7 @@
                 <tbody>
                     @foreach (var playerScore in Score)
                     {
-                        <tr>
+                        <tr class="@(@playerScore.Id == SelectedPlayerId ? "mark" :"")">
                             <th scope="row">
                                 <span class="badge badge-primary badge-pill">@playerScore.Position</span>
                             </th>
