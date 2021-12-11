@@ -29,9 +29,9 @@
                 <tbody>
                     @foreach (var playerScore in Score)
                     {
-                        <tr class="@(@playerScore.Id == SelectedPlayerId ? "mark" :"")">
+                        <tr class="@(@playerScore.Id == SelectedPlayerId ? "highlight" : "")">
                             <th scope="row">
-                                <span class="badge badge-primary badge-pill">@playerScore.Position</span>
+                                <span class="badge @(@playerScore.Id == SelectedPlayerId ? "badge-secondary" : "badge-primary") badge-pill">@playerScore.Position</span>
                             </th>
                             <td>@playerScore.Name (@playerScore.Id)</td>
                             <td>@playerScore.NumberOfGamesPlayed</td>

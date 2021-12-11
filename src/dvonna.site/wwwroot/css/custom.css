@@ -59,8 +59,10 @@ img.icon {
     margin-bottom: 10px;
 }
 
-tr.mark {
-    color: #000;
+tr.highlight {
+    color: #fff;
+    background-color: #375a7f;
+    border: #375a7f;
 }
 
 html {
