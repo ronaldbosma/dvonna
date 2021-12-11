@@ -14,7 +14,8 @@ stages:
 - stage: 'Build'
   jobs:
   - template: .azure-pipelines/build.yml
-
+    parameters:
+      artifactName: '$(artifactName)'
 
 
 - stage: 'Deploy'
