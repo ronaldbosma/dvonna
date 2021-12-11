@@ -1,0 +1,62 @@
+parameters:
+- name: artifactName
+  type: string
+
+jobs:
+- job:
+  pool:
+    vmImage: 'windows-latest'
+
+  workspace:
+    clean: all
+
+  variables:
+    buildConfiguration: 'Release'
+
+  steps:
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      packageType: sdk
+      version: 3.1.x
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'NuGet Restore'
+    inputs:
+      command: restore
+      projects: '**/*.csproj'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Build Solution'
+    inputs:
+      command: build
+      projects: 'src/dvonna.sln'
+      arguments: '--configuration $(buildConfiguration)'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Run Tests'
+    enabled: false
+    inputs:
+      command: test
+      projects: '**/*[Tt]ests/*.csproj'
+      arguments: '--configuration $(buildConfiguration) --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput="$(Build.SourcesDirectory)/TestResults/Coverage"'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Publish Blazor App'
+    inputs:
+      command: publish
+      projects: 'src/dvonna.Site/*.csproj'
+      arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}'
+      publishWebProjects: true
+      zipAfterPublish: true
+
+  - task: CopyFiles@2
+    displayName: 'Copy Bicep files'
+    inputs:
+      sourceFolder: '.bicep'
+      contents: '**'
+      targetFolder: '$(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}/.bicep'
+
+  - publish: '$(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}'
+    displayName: 'Publish Artifact'
+    artifact: '${{ parameters.artifactName }}'
