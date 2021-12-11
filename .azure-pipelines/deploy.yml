@@ -38,6 +38,7 @@ jobs:
 
           az deployment sub create \
             --location ${{ parameters.location }} \
+            --name '${{ parameters.siteName }}-blazor-app' \
             --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' \
             --parameters siteName='${{ parameters.siteName }}' location='${{ parameters.location }}' environment='${{ parameters.environment }}'
 
