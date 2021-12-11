@@ -1,6 +1,5 @@
 ﻿@page "/players"
 @inherits PlayerOverviewPage
-@inject IStringLocalizer<LocalizedStrings> Loc
 
 @if (Players == null)
 {
@@ -10,6 +9,10 @@ else
 {
     <div class="row">
         <div class="col-12">
+            <div class="alert alert-success @(PlayerSavedMessageVisible ? "d-block" : "d-none")" role="alert">
+                @PlayerSavedMessage
+            </div>
+
             <div class="card border-dark">
                 <div class="card-header">
                     <EditForm Model="Players">
