@@ -4,7 +4,7 @@ using System.Timers;
 namespace dvonna.Site.Services
 {
     /// <summary>
-    /// Service to display toasts.
+    /// Component for displaying toast notifications.
     /// </summary>
     /// <remarks>
     /// Source: https://chrissainty.com/blazor-toast-notifications-using-only-csharp-html-css/
