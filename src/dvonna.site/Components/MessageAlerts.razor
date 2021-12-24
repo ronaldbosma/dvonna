@@ -4,14 +4,16 @@
 
 @if (Messages != null && Messages.Any())
 {
-    @foreach (var message in Messages)
-    {
-        <div class="alert alert-info col-12" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close" @onclick="async () => await MarkMessageAsReadAsync(message.Id)">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="col-12">
+        @foreach (var message in Messages)
+        {
+            <div class="alert alert-info w-100" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" @onclick="async () => await MarkMessageAsReadAsync(message.Id)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 
-            <p>@message.Content</p>
-        </div>
-    }
+                <p>@message.Content</p>
+            </div>
+        }
+    </div>
 }
