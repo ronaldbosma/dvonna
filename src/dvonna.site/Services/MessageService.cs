@@ -8,13 +8,11 @@ namespace dvonna.Site.Services
 {
     public class MessageService : IMessageService
     {
-        private readonly IMessageServiceClient _client;
         private readonly Lazy<Task<IEnumerable<Message>>> _messages;
 
         public MessageService(IMessageServiceClient client)
         {
-            _client = client;
-            _messages = new Lazy<Task<IEnumerable<Message>>>(() => _client.GetMessagesAsync());
+            _messages = new Lazy<Task<IEnumerable<Message>>>(() => client.GetMessagesAsync());
         }
 
         public async Task<IEnumerable<Message>> GetMessagesAsync()
