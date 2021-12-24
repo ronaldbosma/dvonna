@@ -67,4 +67,11 @@
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact;
         }
+
+    #qr {
+        height: 80px;
+        width: 80px;
+        margin-top: 5px;
+        margin-right: 20px;
+    }
 }
