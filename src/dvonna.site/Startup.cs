@@ -29,6 +29,9 @@ namespace dvonna.Site
 
             AddDataClient(services);
             AddUserPreferences(services);
+
+            services.AddSingleton<IMessageService, MessageService>();
+            services.AddSingleton<IMessageServiceClient, MessageServiceClient>();
         }
 
         private void AddDataClient(IServiceCollection services)
