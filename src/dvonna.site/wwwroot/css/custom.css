@@ -59,6 +59,14 @@ img.icon {
     margin-bottom: 10px;
 }
 
+#messages div {
+    background-color: inherit;
+}
+
+#messages span {
+    font-style: italic;
+}
+
 tr.highlight {
     color: #fff;
     background-color: #375a7f;

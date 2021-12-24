@@ -1,5 +1,4 @@
-﻿using System;
-using dvonna.Site.Services;
+﻿using dvonna.Site.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +28,8 @@ namespace dvonna.Site
 
             AddDataClient(services);
             AddUserPreferences(services);
+
+            services.AddScoped<IMessageService, MessageService>();
         }
 
         private void AddDataClient(IServiceCollection services)
@@ -42,7 +43,8 @@ namespace dvonna.Site
             .AddTypedClient(c => Refit.RestService.For<IScoreService>(c))
             .AddTypedClient(c => Refit.RestService.For<IPlayerService>(c))
             .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c))
-            .AddTypedClient(c => Refit.RestService.For<IPlayedGamesService>(c));
+            .AddTypedClient(c => Refit.RestService.For<IPlayedGamesService>(c))
+            .AddTypedClient(c => Refit.RestService.For<IMessageServiceClient>(c));
         }
 
         private static void AddUserPreferences(IServiceCollection services)

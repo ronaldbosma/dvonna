@@ -1,0 +1,32 @@
+﻿@page "/messages"
+@inherits MessagesPage
+@inject IStringLocalizer<LocalizedStrings> Loc
+
+<h3 class="pageTitle">@Loc["Messages"]</h3>
+
+<div class="row">
+
+    @if (Messages == null)
+    {
+        <p><em>@Loc["Loading"]...</em></p>
+    }
+    else
+    {
+        if (Messages.Any())
+        {
+            <div id="messages" class="list-group">
+                @foreach (var message in Messages)
+                {
+                    <div class="list-group-item">
+                        <p>@message.Content</p>
+                        <span style="float:right">@message.CreatedOn.ToString("dd MMMM yyyy")</span>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>@Loc["There are no messages."]</p>
+        }
+    }
+</div>
