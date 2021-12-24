@@ -38,7 +38,6 @@ namespace dvonna.Site.Services
         {
             var readMessageIds = await GetIdsOfMessagesMarkedAsReadAsync();
             readMessageIds.Add(id);
-            readMessageIds.Add(id);
 
             await _readMessagesStore.SetAsync(ReadMessagesKey, readMessageIds);
         }
