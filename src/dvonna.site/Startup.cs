@@ -30,7 +30,7 @@ namespace dvonna.Site
             AddDataClient(services);
             AddUserPreferences(services);
 
-            services.AddSingleton<IMessageService, MessageService>();
+            services.AddScoped<IMessageService, MessageService>();
             services.AddSingleton<IMessageServiceClient, MessageServiceClient>();
         }
 

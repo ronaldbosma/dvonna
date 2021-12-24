@@ -3,16 +3,22 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using dvonna.Shared;
+using Microsoft.AspNetCore.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
 {
     public class MessageService : IMessageService
     {
-        private readonly Lazy<Task<IEnumerable<Message>>> _messages;
+        private const string ReadMessagesKey = "ReadMessages";
 
-        public MessageService(IMessageServiceClient client)
+        private readonly Lazy<Task<IEnumerable<Message>>> _messages;
+        // ProtectedLocalStorage can be used to store data across browser sessions
+        private readonly ProtectedLocalStorage _readMessagesStore;
+
+        public MessageService(IMessageServiceClient client, ProtectedLocalStorage readMessagesStore)
         {
             _messages = new Lazy<Task<IEnumerable<Message>>>(() => client.GetMessagesAsync());
+            _readMessagesStore = readMessagesStore;
         }
 
         public async Task<IEnumerable<Message>> GetMessagesAsync()
@@ -23,18 +29,23 @@ namespace dvonna.Site.Services
         public async Task<IEnumerable<Message>> GetActiveUnreadMessagesAsync()
         {
             var messages = await _messages.Value;
-            var referenceDate = DateTime.Today;
+            var readMessageIds = await GetIdsOfMessagesMarkedAsReadAsync();
 
-            var activeMessages = messages.Where(m => m.ShowUntilDate.Date >= referenceDate);
-
-            //TODO: filter unread
-
-            return activeMessages;
+            return messages.Where(m => m.ShowUntilDate.Date >= DateTime.Today && !readMessageIds.Contains(m.Id));
         }
 
-        public Task MarkMessageAsRead(int id)
+        public async Task MarkMessageAsRead(int id)
         {
-            throw new System.NotImplementedException();
+            var readMessageIds = await GetIdsOfMessagesMarkedAsReadAsync();
+            readMessageIds.Add(id);
+            readMessageIds.Add(id);
+
+            await _readMessagesStore.SetAsync(ReadMessagesKey, readMessageIds);
+        }
+
+        private async Task<List<int>> GetIdsOfMessagesMarkedAsReadAsync()
+        {
+            return await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey) ?? new List<int>();
         }
     }
 }
