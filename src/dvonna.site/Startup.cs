@@ -27,8 +27,8 @@ namespace dvonna.Site
             services.AddLocalization();
 
             AddDataClient(services);
-            AddUserPreferences(services);
 
+            services.AddScoped<IUserPreferences, UserPreferences>();
             services.AddScoped<IMessageService, MessageService>();
         }
 
@@ -45,13 +45,6 @@ namespace dvonna.Site
             .AddTypedClient(c => Refit.RestService.For<IAgendaService>(c))
             .AddTypedClient(c => Refit.RestService.For<IPlayedGamesService>(c))
             .AddTypedClient(c => Refit.RestService.For<IMessageServiceClient>(c));
-        }
-
-        private static void AddUserPreferences(IServiceCollection services)
-        {
-            // Service to store user preferences
-            services.AddScoped<IUserPreferences, UserPreferences>();
-            services.AddProtectedBrowserStorage();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

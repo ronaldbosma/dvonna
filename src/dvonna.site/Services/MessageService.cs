@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using dvonna.Shared;
-using Microsoft.AspNetCore.ProtectedBrowserStorage;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
 {
@@ -44,7 +44,8 @@ namespace dvonna.Site.Services
 
         private async Task<List<int>> GetIdsOfMessagesMarkedAsReadAsync()
         {
-            return await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey) ?? new List<int>();
+            var readMessageIds = await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey);
+            return readMessageIds.Success ? readMessageIds.Value : new List<int>();
         }
     }
 }
