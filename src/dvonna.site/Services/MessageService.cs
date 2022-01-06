@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using dvonna.Shared;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
@@ -44,8 +45,20 @@ namespace dvonna.Site.Services
 
         private async Task<List<int>> GetIdsOfMessagesMarkedAsReadAsync()
         {
-            var readMessageIds = await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey);
-            return readMessageIds.Success ? readMessageIds.Value : new List<int>();
+            try
+            {
+                var readMessageIds = await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey);
+                if (readMessageIds.Success)
+                {
+                    return readMessageIds.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error while loading the ids of messages marked as read: {ex}");
+            }
+
+            return new List<int>();
         }
     }
 }
