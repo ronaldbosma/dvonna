@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using dvonna.Shared;
-using Microsoft.AspNetCore.ProtectedBrowserStorage;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
 {
@@ -27,16 +28,21 @@ namespace dvonna.Site.Services
 
         public async Task<PlayerDetails> GetSavedPlayerDetailsAsync()
         {
-            var savedPlayerId = await _preferenceStore.GetAsync<int?>(PreferredPlayerIdKey);
+            try
+            {
+                var savedPlayerId = await _preferenceStore.GetAsync<int?>(PreferredPlayerIdKey);
 
-            if (savedPlayerId.HasValue)
-            {
-                return await _playerService.GetPlayerDetailsAsync(savedPlayerId.Value);
+                if (savedPlayerId.Success && savedPlayerId.Value.HasValue)
+                {
+                    return await _playerService.GetPlayerDetailsAsync(savedPlayerId.Value.Value);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return null;
+                Debug.WriteLine($"Error while loading the id of the saved player: {ex}");
             }
+
+            return null;
         }
 
         public async Task SavePlayerIdAsync(int playerId)
