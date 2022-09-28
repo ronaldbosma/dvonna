@@ -11,7 +11,7 @@ parameters:
   default: ''
 - name: azureSubscription
   type: string
-  default: 'Azure Visual Studio Enterprise'
+  default: 'Visual Studio Enterprise 1'
 
 
 jobs:
