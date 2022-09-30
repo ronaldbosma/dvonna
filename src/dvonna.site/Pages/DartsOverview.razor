@@ -15,15 +15,10 @@
         if (DartOverviewScore.Any())
         {
             <div class="col-12">
-                <a id="print-link" class="float-right" href="javascript:window.print()">@Loc["Print Darts Overview"]</a>
+                <a id="print-link" href="@Config.Value.DataEndpoint/dart-overview.pdf">@Loc["Print Darts Overview"]</a>
             </div>
 
-            <div id="section-to-print">
-                <div id="qr" class="d-none d-print-block">
-                    <img src="images/qr.png" alt="qr"/>
-                    <span>https://dvonna.azurewebsites.net/</span>
-                </div>
-
+            <div>
                 <table id="dartOverview" class="table table-hover">
                     <thead>
                         <tr>

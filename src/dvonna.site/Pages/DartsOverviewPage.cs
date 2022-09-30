@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using dvonna.Shared;
 using dvonna.Site.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Options;
 
 namespace dvonna.Site.Pages
 {
@@ -10,6 +11,9 @@ namespace dvonna.Site.Pages
     {
         [Inject]
         public IScoreService ScoreService { get; set; }
+
+        [Inject]
+        public IOptions<DvOnnaConfig> Config { get; set; }
 
         public IEnumerable<DartOverviewRow> DartOverviewScore { get; set; }
 

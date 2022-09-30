@@ -126,6 +126,9 @@
   <data name="Player has been saved" xml:space="preserve">
     <value>Player {0} has been saved</value>
   </data>
+  <data name="Print Darts Overview" xml:space="preserve">
+    <value>Print Darts Overview (PDF)</value>
+  </data>
   <data name="Won_Short" xml:space="preserve">
     <value>W</value>
   </data>
