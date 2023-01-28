@@ -12,9 +12,8 @@ parameters:
 - name: azureSubscription
   type: string
   default: 'Visual Studio Enterprise 1'
-- name: culture
+- name: uiCulture
   type: string
-  default: 'en-US'
 
 
 jobs:
@@ -24,7 +23,7 @@ jobs:
 
   variables:
     # Variable is used to update the Culture in appsettings.json
-    DvOnnaConfig.Culture: '{{ parameters.culture }}'
+    DvOnnaConfig.Culture: '${{ parameters.uiCulture }}'
 
   steps:
     - checkout: none  # no need to checkout any code because we only need the artifact
