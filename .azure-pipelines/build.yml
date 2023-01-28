@@ -54,9 +54,7 @@ jobs:
     displayName: 'Copy Bicep files'
     inputs:
       sourceFolder: '.bicep'
-      contents: |
-        **
-        !**/appsettings.*.json
+      contents: '**'
       targetFolder: '$(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}/.bicep'
 
   - publish: '$(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}'
