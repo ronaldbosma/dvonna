@@ -16,7 +16,6 @@ module blazorAppModule 'dvonna-blazor-app.bicep' = {
     siteName: siteName
     environment: environment
   }
-  dependsOn: [
-    dvonnaResourceGroup
-  ]
 }
+
+output dvOnnaDataEndpoint string = blazorAppModule.outputs.dvOnnaDataEndpoint
