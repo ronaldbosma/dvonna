@@ -12,12 +12,19 @@ parameters:
 - name: azureSubscription
   type: string
   default: 'Visual Studio Enterprise 1'
+- name: culture
+  type: string
+  default: 'en-US'
 
 
 jobs:
 - job:
   pool:
     vmImage: 'ubuntu-latest'
+
+  variables:
+    # Variable is used to update the Culture in appsettings.json
+    DvOnnaConfig.Culture: '{{ parameters.culture }}'
 
   steps:
     - checkout: none  # no need to checkout any code because we only need the artifact
@@ -36,11 +43,24 @@ jobs:
           echo "location: ${{ parameters.location }}"
           echo "environment: ${{ parameters.environment }}"
 
-          az deployment sub create \
+          $deploymentResults = az deployment sub create \
             --location ${{ parameters.location }} \
             --name '${{ parameters.siteName }}-blazor-app' \
             --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' \
             --parameters siteName='${{ parameters.siteName }}' location='${{ parameters.location }}' environment='${{ parameters.environment }}'
+
+          $deploymentResultsObject = $deploymentResults | ConvertFrom-Json
+          $dvOnnaDataEndpoint = $deploymentResultsObject.properties.output.dvOnnaDataEndpoint
+          
+          # Save data endpoint in variable so it can be used to update appsettings.json
+          Write-Host "##vso[task.setvariable variable=DvOnnaConfig.DataEndpoint;]$dvOnnaDataEndpoint"
+
+    - task: FileTransform@1
+      displayName: 'Update appsettings.json'
+      inputs:
+        folderPath: '$(Pipeline.Workspace)/${{ parameters.artifactName }}/*.zip'
+        fileType: 'json'
+        targetFiles: 'wwwroot/appsettings.json'
 
     - task: AzureRmWebAppDeployment@4
       displayName: 'Deploy Blazor App to ${{ parameters.siteName }}'
