@@ -51,7 +51,7 @@ jobs:
           Write-Host "Deployment results: $deploymentResults"
 
           $deploymentResultsObject = $deploymentResults | ConvertFrom-Json
-          $dvOnnaDataEndpoint = $deploymentResultsObject.properties.output.dvOnnaDataEndpoint
+          $dvOnnaDataEndpoint = $deploymentResultsObject.properties.output.dvOnnaDataEndpoint.value
           
           Write-Host "DvOnnaConfig.DataEndpoint: $dvOnnaDataEndpoint"
 
