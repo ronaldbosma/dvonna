@@ -36,17 +36,17 @@ jobs:
       displayName: 'Create Azure resources for ${{ parameters.siteName }}'
       inputs:
         azureSubscription: '${{ parameters.azureSubscription }}'
-        scriptType: 'bash'
+        scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          echo "siteName: ${{ parameters.siteName }}"
-          echo "location: ${{ parameters.location }}"
-          echo "environment: ${{ parameters.environment }}"
+          Write-Host "siteName: ${{ parameters.siteName }}"
+          Write-Host "location: ${{ parameters.location }}"
+          Write-Host "environment: ${{ parameters.environment }}"
 
-          $deploymentResults = az deployment sub create \
-            --location ${{ parameters.location }} \
-            --name '${{ parameters.siteName }}-blazor-app' \
-            --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' \
+          $deploymentResults = az deployment sub create `
+            --location ${{ parameters.location }} `
+            --name '${{ parameters.siteName }}-blazor-app' `
+            --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' `
             --parameters siteName='${{ parameters.siteName }}' location='${{ parameters.location }}' environment='${{ parameters.environment }}'
 
           $deploymentResultsObject = $deploymentResults | ConvertFrom-Json
