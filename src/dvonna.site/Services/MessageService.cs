@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
 using dvonna.Shared;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 namespace dvonna.Site.Services
 {
@@ -13,10 +13,9 @@ namespace dvonna.Site.Services
         private const string ReadMessagesKey = "ReadMessages";
 
         private readonly Lazy<Task<IEnumerable<Message>>> _messages;
-        // ProtectedLocalStorage can be used to store data across browser sessions
-        private readonly ProtectedLocalStorage _readMessagesStore;
+        private readonly ILocalStorageService _readMessagesStore;
 
-        public MessageService(IMessageServiceClient client, ProtectedLocalStorage readMessagesStore)
+        public MessageService(IMessageServiceClient client, ILocalStorageService readMessagesStore)
         {
             _messages = new Lazy<Task<IEnumerable<Message>>>(() => client.GetMessagesAsync());
             _readMessagesStore = readMessagesStore;
@@ -40,17 +39,16 @@ namespace dvonna.Site.Services
             var readMessageIds = await GetIdsOfMessagesMarkedAsReadAsync();
             readMessageIds.Add(id);
 
-            await _readMessagesStore.SetAsync(ReadMessagesKey, readMessageIds);
+            await _readMessagesStore.SetItemAsync(ReadMessagesKey, readMessageIds);
         }
 
         private async Task<List<int>> GetIdsOfMessagesMarkedAsReadAsync()
         {
             try
             {
-                var readMessageIds = await _readMessagesStore.GetAsync<List<int>>(ReadMessagesKey);
-                if (readMessageIds.Success)
+                if (await _readMessagesStore.ContainKeyAsync(ReadMessagesKey))
                 {
-                    return readMessageIds.Value;
+                    return await _readMessagesStore.GetItemAsync<List<int>>(ReadMessagesKey);
                 }
             }
             catch (Exception ex)

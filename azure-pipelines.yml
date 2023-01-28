@@ -27,6 +27,7 @@ stages:
       siteName: 'dvonna-test'
       location: 'centralus'
       environment: 'test'
+      uiCulture: 'en-US'
 
 - stage: 'Production'
   dependsOn: 'Test'
@@ -36,3 +37,4 @@ stages:
     parameters:
       artifactName: '$(artifactName)'
       siteName: 'dvonna'
+      uiCulture: 'nl-NL'
