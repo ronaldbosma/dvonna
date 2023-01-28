@@ -48,9 +48,13 @@ jobs:
             --template-file '$(Pipeline.Workspace)/${{ parameters.artifactName }}/.bicep/dvonna.bicep' `
             --parameters siteName='${{ parameters.siteName }}' location='${{ parameters.location }}' environment='${{ parameters.environment }}'
 
+          Write-Host "Deployment results: $deploymentResults"
+
           $deploymentResultsObject = $deploymentResults | ConvertFrom-Json
           $dvOnnaDataEndpoint = $deploymentResultsObject.properties.output.dvOnnaDataEndpoint
           
+          Write-Host "DvOnnaConfig.DataEndpoint: $dvOnnaDataEndpoint"
+
           # Save data endpoint in variable so it can be used to update appsettings.json
           Write-Host "##vso[task.setvariable variable=DvOnnaConfig.DataEndpoint;]$dvOnnaDataEndpoint"
 
