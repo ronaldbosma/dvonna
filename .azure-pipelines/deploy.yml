@@ -11,7 +11,7 @@ parameters:
   default: ''
 - name: azureSubscription
   type: string
-  default: 'Visual Studio Enterprise 1'
+  default: 'visual-studio-enterprise-1'
 - name: uiCulture
   type: string
 
