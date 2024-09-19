@@ -5,7 +5,7 @@ parameters:
   type: string
 - name: location
   type: string
-  default: 'norwayeast'
+  default: 'westeurope'
 - name: environment
   type: string
   default: ''
