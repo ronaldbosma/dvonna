@@ -1,5 +1,6 @@
 ﻿@inherits AgendaComponent
 @inject IStringLocalizer<LocalizedStrings> Loc
+@using System.Globalization
 
 @if (PlayDates == null)
 {
@@ -18,7 +19,7 @@ else
             @if (NextPlayDate != null)
             {
                 <p class="card-text">
-                    @Loc["The next dart date is"] @NextPlayDate.Date.ToString("d MMMM").
+                    @Loc["The next dart date is"] @CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(NextPlayDate.Date.DayOfWeek) @NextPlayDate.Date.ToString("d MMMM").
                     @if (!string.IsNullOrWhiteSpace(NextPlayDate.Comments))
                     {
                         <br />  
@@ -43,7 +44,7 @@ else
                 @foreach (var playDate in PlayDates)
                 {
                     <li class="list-group-item d-flexalign-items-center @(playDate.Date.Date == NextPlayDate?.Date.Date ? "active" : "")">
-                        @playDate.Date.ToString("d MMMM yyyy")
+                        @CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(playDate.Date.DayOfWeek) @playDate.Date.ToString("d MMMM yyyy")
                         @if (!string.IsNullOrWhiteSpace(playDate.Comments))
                         {
                             <br />  
