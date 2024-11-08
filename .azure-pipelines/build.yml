@@ -15,10 +15,10 @@ jobs:
 
   steps:
   - task: UseDotNet@2
-    displayName: 'Use .NET Core sdk'
+    displayName: 'Use .NET sdk'
     inputs:
       packageType: sdk
-      version: 6.x
+      version: 8.x
   
   - task: DotNetCoreCLI@2
     displayName: 'NuGet Restore'
