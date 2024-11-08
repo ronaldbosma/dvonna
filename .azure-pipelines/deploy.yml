@@ -58,12 +58,12 @@ jobs:
           # Save data endpoint in variable so it can be used to update appsettings.json
           Write-Host "##vso[task.setvariable variable=DvOnnaConfig.DataEndpoint;]$dvOnnaDataEndpoint"
 
-    - task: FileTransform@1
+    - task: FileTransform@2
       displayName: 'Update appsettings.json'
       inputs:
         folderPath: '$(Pipeline.Workspace)/${{ parameters.artifactName }}/*.zip'
-        fileType: 'json'
-        targetFiles: 'wwwroot/appsettings.json'
+        jsonTargetFiles: 'wwwroot/appsettings.json'
+        xmlTransformationRules: ''
 
     - task: AzureRmWebAppDeployment@4
       displayName: 'Deploy Blazor App to ${{ parameters.siteName }}'
